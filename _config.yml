@@ -13,6 +13,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: ankit_muchhala
 github_username:  ankit-m
+google_analytics: UA-65320429-1
 
 # Build settings
 markdown: kramdown
