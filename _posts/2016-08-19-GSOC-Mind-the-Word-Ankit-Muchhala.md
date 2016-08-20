@@ -46,7 +46,8 @@ Other challenges include - pagination for long lists, implementing one translati
 The list of all Pull Requests made by me can be found here: [https://github.com/OiWorld/MindTheWord/pulls?q=is%3Apr+is%3Aclosed+author%3Aankit-m](https://github.com/OiWorld/MindTheWord/pulls?q=is%3Apr+is%3Aclosed+author%3Aankit-m)
 
 Following is a list of major pull requests:
-* Refactored Code and new UI -  [#114](https://github.com/OiWorld/MindTheWord/pull/114)
+
+* Refactored Code and new UI - [#114](https://github.com/OiWorld/MindTheWord/pull/114)
 * Bing Translate - [#124](https://github.com/OiWorld/MindTheWord/pull/124)
 * Google Translate - [#128](https://github.com/OiWorld/MindTheWord/pull/128)
 * Automatically disable context menus - [#132](https://github.com/OiWorld/MindTheWord/pull/132)
