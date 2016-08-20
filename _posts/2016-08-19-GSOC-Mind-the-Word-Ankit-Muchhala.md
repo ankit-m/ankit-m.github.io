@@ -3,7 +3,8 @@ layout: post
 title: GSoC | Mind the Word - Ankit Muchhala
 ---
 
-Link to commits: [https://github.com/OiWorld/MindTheWord/commits?author=ankit-m](https://github.com/OiWorld/MindTheWord/commits?author=ankit-m)
+### Link to Commits
+[https://github.com/OiWorld/MindTheWord/commits?author=ankit-m](https://github.com/OiWorld/MindTheWord/commits?author=ankit-m)
 
 ### OiWorld - Mind the Word
 
