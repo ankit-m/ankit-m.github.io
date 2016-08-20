@@ -59,6 +59,8 @@ Following is a list of major pull requests:
 * Translate one word per sentence - [#185](https://github.com/OiWorld/MindTheWord/pull/185)
 
 ### Weekly Blogposts
+Following is a list of weekly blogs, which serve as a summary of my weekly work:
+
 * [Week 1](http://ankit-m.github.io/2016/05/30/GSOC-Week1.html)
 * [Week 2](http://ankit-m.github.io/2016/06/07/GSOC-Week2.html)
 * [Week 3](http://ankit-m.github.io/2016/06/13/GSOC-Week3.html)
