@@ -1,10 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import Badge from '../Badge';
-import Card from '../Card';
-import Icon from '../Icon';
+import React from "react"
+import styled from "styled-components"
+import Badge from "../Badge"
+import Card from "../Card"
+import Icon from "../Icon"
 
-import Section, { NextSection, PrevSection, SectionLeft, SectionRight } from './Section';
+import Section, {
+  NextSection,
+  PrevSection,
+  SectionLeft,
+  SectionRight,
+} from "./Section"
 
 function CookingFigure(props) {
   return (
@@ -67,7 +72,7 @@ function CookingFigure(props) {
         />
       </g>
     </svg>
-  );
+  )
 }
 
 const ComingSoon = styled(Badge)`
@@ -75,25 +80,25 @@ const ComingSoon = styled(Badge)`
   line-height: 1.5em;
   height: auto;
   margin-top: 2em;
-`;
+`
 
 export default function FoodSection() {
   return (
-    <Section id='food'>
+    <Section id="food">
       <SectionLeft>
-        <CookingFigure height='320px' />
+        <CookingFigure height="320px" />
       </SectionLeft>
       <SectionRight>
-        <h1 className='text-teal accent-font'>Food</h1>
+        <h1 className="text-teal accent-font">Food</h1>
         <p>
           Given an option between cooking an eating, I would go for the latter.
-          I <strong>love</strong> eating food. I will post photos, videos, recipes
-          and reviews of things I eat.
+          I <strong>love</strong> eating food. I will post photos, videos,
+          recipes and reviews of things I eat.
         </p>
         <ComingSoon>Coming soon</ComingSoon>
       </SectionRight>
-      <PrevSection id='comics' />
-      <NextSection id='consulting' label='Consulting' />
+      <PrevSection id="comics" />
+      <NextSection id="consulting" label="Consulting" />
     </Section>
-  );
+  )
 }

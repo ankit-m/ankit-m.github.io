@@ -1,8 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import Badge from '../Badge';
+import React from "react"
+import styled from "styled-components"
+import Badge from "../Badge"
 
-import Section, { NextSection, PrevSection, SectionLeft, SectionRight } from './Section';
+import Section, {
+  NextSection,
+  PrevSection,
+  SectionLeft,
+  SectionRight,
+} from "./Section"
 
 function DrawingFigure(props) {
   return (
@@ -59,7 +64,7 @@ function DrawingFigure(props) {
         />
       </g>
     </svg>
-  );
+  )
 }
 
 const ComingSoon = styled(Badge)`
@@ -67,24 +72,24 @@ const ComingSoon = styled(Badge)`
   line-height: 1.5em;
   height: auto;
   margin-top: 2em;
-`;
+`
 
 export default function ComicSection() {
   return (
-    <Section id='comics'>
+    <Section id="comics">
       <SectionLeft>
-        <DrawingFigure height='320px' />
+        <DrawingFigure height="320px" />
       </SectionLeft>
       <SectionRight>
-        <h1 className='text-blue accent-font'>Comics</h1>
+        <h1 className="text-blue accent-font">Comics</h1>
         <p>
-          No. I do not have a big easel where I contemplate and draw.
-          I make small comic strips about things I see in my life and find funny.
+          No. I do not have a big easel where I contemplate and draw. I make
+          small comic strips about things I see in my life and find funny.
         </p>
         <ComingSoon>Coming soon</ComingSoon>
       </SectionRight>
-      <PrevSection id='talks' />
-      <NextSection id='food' label='Food' />
+      <PrevSection id="talks" />
+      <NextSection id="food" label="Food" />
     </Section>
-  );
+  )
 }

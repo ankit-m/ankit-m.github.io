@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react"
+import styled from "styled-components"
 
 const BadgeWrapper = styled.div`
   border-radius: 8px;
@@ -14,12 +14,8 @@ const BadgeWrapper = styled.div`
   display: inline-block;
   padding: 2px 8px;
   color: var(--gray-600);
-`;
+`
 
-export default function Badge (props) {
-  return (
-    <BadgeWrapper {...props}>
-      {props.children}
-    </BadgeWrapper>
-  );
+export default function Badge(props) {
+  return <BadgeWrapper {...props}>{props.children}</BadgeWrapper>
 }

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react"
 
-import Section, { PrevSection, SectionLeft, SectionRight } from './Section';
+import Section, { PrevSection, SectionLeft, SectionRight } from "./Section"
 
 function TuxFigure(props) {
   return (
@@ -60,24 +60,24 @@ function TuxFigure(props) {
         />
       </g>
     </svg>
-  );
+  )
 }
 
 export default function ConsultingSection() {
   return (
-    <Section id='consulting'>
+    <Section id="consulting">
       <SectionLeft>
-        <TuxFigure height='320px' />
+        <TuxFigure height="320px" />
       </SectionLeft>
       <SectionRight>
-        <h1 className='text-green accent-font'>Consulting</h1>
+        <h1 className="text-green accent-font">Consulting</h1>
         <p>
           Given an option between cooking an eating, I would go for the latter.
-          I <strong>love</strong> eating food. I will post photos, videos, recipes
-          and reviews of things I eat.
+          I <strong>love</strong> eating food. I will post photos, videos,
+          recipes and reviews of things I eat.
         </p>
       </SectionRight>
-      <PrevSection id='food' />
+      <PrevSection id="food" />
     </Section>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'gatsby';
+import React from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
 
-import Icon from '../Icon';
+import Icon from "../Icon"
 
 const Section = styled.section`
   height: 100vh;
@@ -71,7 +71,7 @@ const Section = styled.section`
     bottom: 16px;
     left: 16px;
   }
-`;
+`
 const SectionLeft = styled.div`
   margin-right: 0;
   display: none;
@@ -80,7 +80,7 @@ const SectionLeft = styled.div`
     margin-right: 72px;
     display: block;
   }
-`;
+`
 const SectionRight = styled.div`
   flex-grow: 1;
   margin-right: 0;
@@ -88,40 +88,24 @@ const SectionRight = styled.div`
   @media (min-width: 572px) {
     margin-right: 2rem;
   }
-`;
+`
 
-function NextSection (props) {
+function NextSection(props) {
   return (
-    <Link
-      className='next-section'
-      to={`#${props.id}`}
-    >
-      <span className='accent-font'>
-        {props.label}
-      </span>
-      <Icon
-        name='arrow-circle-down'
-        height='40px'
-        width='40px'
-      />
+    <Link className="next-section" to={`#${props.id}`}>
+      <span className="accent-font">{props.label}</span>
+      <Icon name="arrow-circle-down" height="40px" width="40px" />
     </Link>
-  );
+  )
 }
 
-function PrevSection (props) {
+function PrevSection(props) {
   return (
-    <Link
-      className='prev-section'
-      to={`#${props.id}`}
-    >
-      <Icon
-        name='arrow-circle-up'
-        height='40px'
-        width='40px'
-      />
+    <Link className="prev-section" to={`#${props.id}`}>
+      <Icon name="arrow-circle-up" height="40px" width="40px" />
     </Link>
-  );
+  )
 }
 
-export default Section;
-export { SectionLeft, SectionRight, NextSection, PrevSection };
+export default Section
+export { SectionLeft, SectionRight, NextSection, PrevSection }

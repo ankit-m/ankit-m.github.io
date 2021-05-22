@@ -1,10 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import Badge from '../Badge';
-import Card from '../Card';
-import Icon from '../Icon';
+import React from "react"
+import styled from "styled-components"
+import Badge from "../Badge"
+import Card from "../Card"
+import Icon from "../Icon"
 
-import Section, { NextSection, PrevSection, SectionLeft, SectionRight } from './Section';
+import Section, {
+  NextSection,
+  PrevSection,
+  SectionLeft,
+  SectionRight,
+} from "./Section"
 
 function TalkingFigure(props) {
   return (
@@ -79,7 +84,7 @@ function TalkingFigure(props) {
         </g>
       </g>
     </svg>
-  );
+  )
 }
 
 const TalkCardContent = styled.div`
@@ -89,57 +94,51 @@ const TalkCardContent = styled.div`
   time {
     margin-right: 8px;
   }
-`;
+`
 
 const SuggestedTalks = styled.div`
   .card {
     margin-top: 16px;
   }
-`;
+`
 
 export default function BlogSection() {
   return (
-    <Section id='talks'>
+    <Section id="talks">
       <SectionLeft>
-        <TalkingFigure height='320px' />
+        <TalkingFigure height="320px" />
       </SectionLeft>
       <SectionRight>
-        <h1 className='text-indigo accent-font'>Talks</h1>
+        <h1 className="text-indigo accent-font">Talks</h1>
         <p>
-          I like to talk 😅. Sometimes there are a few people listening.
-          Here are some of my talks from various tech conferences -
+          I like to talk 😅. Sometimes there are a few people listening. Here
+          are some of my talks from various tech conferences -
         </p>
         <SuggestedTalks>
-          <Card title='From REST to GraphQL' color='indigo'>
+          <Card title="From REST to GraphQL" color="indigo">
             <TalkCardContent>
-              <time dateTime='2020-11-18'>
-                <Icon
-                  name='calendar'
-                />
+              <time dateTime="2020-11-18">
+                <Icon name="calendar" />
                 Nov 18, 2020
               </time>
               <Badge>GraphQL Asia 2020</Badge>
             </TalkCardContent>
           </Card>
 
-          <Card title='Building a secure BFF' color='indigo'>
+          <Card title="Building a secure BFF" color="indigo">
             <TalkCardContent>
-              <time dateTime='2020-11-18'>
-                <Icon
-                  name='calendar'
-                />
+              <time dateTime="2020-11-18">
+                <Icon name="calendar" />
                 Nov 18, 2020
               </time>
               <Badge>JSFoo 2018</Badge>
             </TalkCardContent>
           </Card>
 
-          <Card title='React Internals' color='indigo'>
+          <Card title="React Internals" color="indigo">
             <TalkCardContent>
-              <time dateTime='2020-11-18'>
-                <Icon
-                  name='calendar'
-                />
+              <time dateTime="2020-11-18">
+                <Icon name="calendar" />
                 Nov 18, 2020
               </time>
               <Badge>ReactFoo 2018</Badge>
@@ -147,8 +146,8 @@ export default function BlogSection() {
           </Card>
         </SuggestedTalks>
       </SectionRight>
-      <PrevSection id='blog' />
-      <NextSection id='comics' label='Comics' />
+      <PrevSection id="blog" />
+      <NextSection id="comics" label="Comics" />
     </Section>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react"
+import styled from "styled-components"
 
 // @todo add mobile viewport handling
 const MainWrapper = styled.main`
@@ -10,8 +10,8 @@ const MainWrapper = styled.main`
   &.offset-header {
     margin-top: 92px;
   }
-`;
+`
 
-export default function Main (props) {
-  return <MainWrapper {...props} />;
-};
+export default function Main(props) {
+  return <MainWrapper {...props} />
+}

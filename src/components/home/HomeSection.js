@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { StaticImage } from 'gatsby-plugin-image';
+import React from "react"
+import styled from "styled-components"
+import { StaticImage } from "gatsby-plugin-image"
 
-import Section, { NextSection, SectionLeft, SectionRight } from './Section';
+import Section, { NextSection, SectionLeft, SectionRight } from "./Section"
 
 function WavingFigure(props) {
   return (
@@ -60,7 +60,7 @@ function WavingFigure(props) {
         />
       </g>
     </svg>
-  );
+  )
 }
 
 const SocialLinks = styled.div`
@@ -71,7 +71,7 @@ const SocialLinks = styled.div`
   a {
     margin-right: 1rem;
   }
-`;
+`
 
 const Name = styled.div`
   display: flex;
@@ -84,26 +84,26 @@ const Name = styled.div`
       border-radius: 50%;
     }
   }
-`;
+`
 
 export default function HomeSection(props) {
   return (
-    <Section id='home'>
+    <Section id="home">
       <SectionLeft>
         <WavingFigure height="320px" />
       </SectionLeft>
       <SectionRight>
         <p>Hi! I am</p>
-        <h1 className='text-pink accent-font'>Ankit Muchhala</h1>
+        <h1 className="text-pink accent-font">Ankit Muchhala</h1>
         <p>
-          I build web products. Currently, helping Postman create an API platform 
-          for over 15M users.
+          I build web products. Currently, helping Postman create an API
+          platform for over 15M users.
         </p>
         <SocialLinks>
           <a
-            href='https://twitter.com/ankit_muchhala'
-            rel='noreferrer noopener'
-            target='_blank'
+            href="https://twitter.com/ankit_muchhala"
+            rel="noreferrer noopener"
+            target="_blank"
           >
             <StaticImage
               layout="fixed"
@@ -116,9 +116,9 @@ export default function HomeSection(props) {
             />
           </a>
           <a
-            href='https://github.com/ankit-m'
-            rel='noreferrer noopener'
-            target='_blank'
+            href="https://github.com/ankit-m"
+            rel="noreferrer noopener"
+            target="_blank"
           >
             <StaticImage
               layout="fixed"
@@ -127,13 +127,13 @@ export default function HomeSection(props) {
               width={32}
               height={32}
               quality={95}
-              alt='Github profile page'
+              alt="Github profile page"
             />
           </a>
           <a
-            href='https://www.linkedin.com/in/ankitmuchhala'
-            rel='noreferrer noopener'
-            target='_blank'
+            href="https://www.linkedin.com/in/ankitmuchhala"
+            rel="noreferrer noopener"
+            target="_blank"
           >
             <StaticImage
               layout="fixed"
@@ -142,12 +142,12 @@ export default function HomeSection(props) {
               width={32}
               height={32}
               quality={95}
-              alt='LinkedIn profile page'
+              alt="LinkedIn profile page"
             />
           </a>
         </SocialLinks>
       </SectionRight>
-      <NextSection id='blog' label='Blog' />
+      <NextSection id="blog" label="Blog" />
     </Section>
-  );
+  )
 }

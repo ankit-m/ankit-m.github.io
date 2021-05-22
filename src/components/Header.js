@@ -1,39 +1,46 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import React from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
 
-const navItems = [{
-  label: 'Home',
-  key: 'home',
-  path: '/',
-  className: 'text-pink'
-}, {
-  label: 'Blog',
-  key: 'blog',
-  path: '/blog',
-  className: 'text-purple'
-}, {
-  label: 'Talks',
-  key: 'talks',
-  path: '/talks',
+const navItems = [
+  {
+    label: "Home",
+    key: "home",
+    path: "/",
+    className: "text-pink",
+  },
+  {
+    label: "Blog",
+    key: "blog",
+    path: "/blog",
+    className: "text-purple",
+  },
+  {
+    label: "Talks",
+    key: "talks",
+    path: "/talks",
 
-  className: 'text-indigo'
-}, {
-  label: 'Comics',
-  key: 'comics',
-  path: '/comics',
-  className: 'text-blue'
-}, {
-  label: 'Food',
-  key: 'food',
-  path: '/food',
-  className: 'text-teal'
-}, {
-  label: 'Consulting',
-  key: 'consulting',
-  path: '/consulting',
-  className: 'text-green'
-}];
+    className: "text-indigo",
+  },
+  {
+    label: "Comics",
+    key: "comics",
+    path: "/comics",
+    className: "text-blue",
+  },
+  {
+    label: "Food",
+    key: "food",
+    path: "/food",
+    className: "text-teal",
+  },
+  {
+    label: "Consulting",
+    key: "consulting",
+    path: "/consulting",
+    className: "text-green",
+  },
+]
 
 const HeaderWrapper = styled.header`
   height: 64px;
@@ -86,22 +93,21 @@ const HeaderWrapper = styled.header`
       display: block;
     }
   }
-`;
+`
 
 export default function Header(props) {
   return (
-    <HeaderWrapper className={`accent-font ${props.className || ''}`}>
-      <Link
-        className='site-title'
-        to='/'
-      >
+    <HeaderWrapper className={`accent-font ${props.className || ""}`}>
+      <Link className="site-title" to="/">
         ankit muchhala
       </Link>
 
       <nav>
-        {navItems.map((item) => (
+        {navItems.map(item => (
           <Link
-            className={`${item.className || ''} ${props.active === item.key ? 'active' : ''}`}
+            className={`${item.className || ""} ${
+              props.active === item.key ? "active" : ""
+            }`}
             key={item.key}
             to={item.path}
           >
@@ -110,5 +116,5 @@ export default function Header(props) {
         ))}
       </nav>
     </HeaderWrapper>
-  );
+  )
 }

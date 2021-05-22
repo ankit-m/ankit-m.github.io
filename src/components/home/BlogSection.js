@@ -1,11 +1,16 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import styled from 'styled-components';
-import Badge from '../Badge';
-import Card from '../Card';
-import Icon from '../Icon';
+import { Link } from "gatsby"
+import React from "react"
+import styled from "styled-components"
+import Badge from "../Badge"
+import Card from "../Card"
+import Icon from "../Icon"
 
-import Section, { NextSection, SectionLeft, SectionRight, PrevSection } from './Section';
+import Section, {
+  NextSection,
+  SectionLeft,
+  SectionRight,
+  PrevSection,
+} from "./Section"
 
 const ViewAllLink = styled(Link)`
   margin: 32px 0 16px 0;
@@ -17,7 +22,7 @@ const ViewAllLink = styled(Link)`
   &:hover {
     color: var(--purple-dark);
   }
-`;
+`
 
 function TypingFigure(props) {
   return (
@@ -61,7 +66,7 @@ function TypingFigure(props) {
         </g>
       </g>
     </svg>
-  );
+  )
 }
 
 const BlogCardContent = styled.div`
@@ -71,36 +76,34 @@ const BlogCardContent = styled.div`
   time {
     margin-right: 8px;
   }
-`;
+`
 
 const SuggestedBlogs = styled.div`
   .card {
     margin-top: 16px;
   }
-`;
+`
 
-export default function BlogSection (props) {
+export default function BlogSection(props) {
   return (
-    <Section id='blog'>
+    <Section id="blog">
       <SectionLeft>
         <TypingFigure height="320px" />
       </SectionLeft>
       <SectionRight>
-        <h1 className='text-purple accent-font'>Blog</h1>
+        <h1 className="text-purple accent-font">Blog</h1>
         <p>
-          I write about product management, web development,
-          books and anything else I find interesting. Here are a few reads -
+          I write about product management, web development, books and anything
+          else I find interesting. Here are a few reads -
         </p>
         <SuggestedBlogs>
-          {props.blogs.map((blog) => (
+          {props.blogs.map(blog => (
             <Link key={blog.id} to={`/blog${blog.slug}`}>
-              <Card title={blog.title} color='purple'>
+              <Card title={blog.title} color="purple">
                 <BlogCardContent>
                   <time dateTime={blog.date}>
-                    <Icon
-                      name='calendar'
-                    />
-                    {(new Date(blog.date)).toDateString()}
+                    <Icon name="calendar" />
+                    {new Date(blog.date).toDateString()}
                   </time>
                   {/* <Badge>Book Review</Badge> */}
                 </BlogCardContent>
@@ -108,12 +111,10 @@ export default function BlogSection (props) {
             </Link>
           ))}
         </SuggestedBlogs>
-        <ViewAllLink to='/blog'>
-          View all blogs
-        </ViewAllLink>
+        <ViewAllLink to="/blog">View all blogs</ViewAllLink>
       </SectionRight>
-      <PrevSection id='' />
-      <NextSection id='talks' label='Talks' />
+      <PrevSection id="" />
+      <NextSection id="talks" label="Talks" />
     </Section>
-  );
+  )
 }

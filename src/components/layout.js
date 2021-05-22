@@ -1,18 +1,18 @@
-import React, { Fragment } from 'react';
-import Header from './Header';
-import Main from './Main';
+import React, { Fragment } from "react"
+import Header from "./Header"
+import Main from "./Main"
 
 const Layout = ({ active, children, location }) => {
-  const rootPath = `${__PATH_PREFIX__}/`;
+  const rootPath = `${__PATH_PREFIX__}/`
 
   return (
     <Fragment>
       <Header active={active} />
-      <Main className={location.pathname !== rootPath && 'offset-header'}>
+      <Main className={location.pathname !== rootPath && "offset-header"}>
         {children}
       </Main>
     </Fragment>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

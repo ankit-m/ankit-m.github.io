@@ -1,14 +1,12 @@
 ---
 title: Why should I write good commit messages?
-date: '2019-07-04T18:30:00.000Z'
+date: "2019-07-04T18:30:00.000Z"
 description: Importance of writing commit messages.
 ---
 
 As a fresh graduate, I was excited at the prospect of writing code for a product used by millions of users. I could not wait send my first PR and get it merged. Little did I know that the first comments I would receive were not about my code but about my commit messages and how they need to be better.
 
-
 The young me thought, “Why is that important? Who cares about messages? It is the code which matters.” Two years later, after working on multiple projects, reviewing countless PRs and going through a plethora of public packages, I realize just how wrong I was. Over the course of this article, I would like to describe various scenarios which made me appreciate the importance of writing good commit messages.
-
 
 There are a lot of good [articles and blogposts](https://chris.beams.io/posts/git-commit/) about how to write commit messages with a list of dos and don’ts. Here, I my focus is on why you should do that.
 
@@ -16,7 +14,7 @@ There are a lot of good [articles and blogposts](https://chris.beams.io/posts/gi
 
 > Tom, Sr. Software Engineer
 
-*Saturday, 2.31 AM — phone ringing.*
+_Saturday, 2.31 AM — phone ringing._
 
 Tom answers his phone and finds out that paid users are unable to login and cannot do anything. A chill goes up his spine. At the back of his mind, he knew he shouldn’t have deployed on a Friday. Yet, he did and there it is.
 
@@ -47,7 +45,7 @@ f4f78b31 27)     return userLogin();
 
 The bug was right there. Unsafe access for the property id. What if a user does not belong to a team? The `team` property will not exist. So all non-team users are not be able to login.
 
-To fix this simply replace *Line 25* with `user.team` && `user.team.id`. Easy! Right?
+To fix this simply replace _Line 25_ with `user.team` && `user.team.id`. Easy! Right?
 
 Not so fast. What about team with ID `1`? Why are team login and user login different? Why was this change made? Is team ID `0` possible? To better understand the problem, Tom decided to dig further.
 
@@ -62,7 +60,7 @@ Date: Fri Mar 13 10:12:29 2019 +0330
 ...
 ```
 
-Here is the problem — The commit message is vague and does not tell Tom anything more than the actual code diff. He already knows that the login flow was updated. He is looking for more information to *help him understand* the code change. A better commit message could be:
+Here is the problem — The commit message is vague and does not tell Tom anything more than the actual code diff. He already knows that the login flow was updated. He is looking for more information to _help him understand_ the code change. A better commit message could be:
 
 ```
 Create a new login page for team users
@@ -76,7 +74,7 @@ This commit messages conveys a lot more information about why the change was mad
 
 > Calvin, Intern
 
-*Monday, 8.36 AM*
+_Monday, 8.36 AM_
 
 Calvin has been assigned a getting-started issue for a Google Maps-like project. His task is to add a configuration for grocery stores. He is to use this opportunity to familiarize himself with the codebase.
 
@@ -99,7 +97,7 @@ add safe checks in element config    <- 🤔
 ...
 ```
 
-While this message does tell you that the condition is a safe check, it still does not give you the full picture. Like previous section, it does not tell you *why* the change was made. A better commit message could be
+While this message does tell you that the condition is a safe check, it still does not give you the full picture. Like previous section, it does not tell you _why_ the change was made. A better commit message could be
 
 ```
 fetch map element config from API for emergency buildings
@@ -114,7 +112,7 @@ Here, a good commit message helped a new developer understand parts of the codeb
 
 > Wilma, Project Lead
 
-*Friday, 3.04 PM*
+_Friday, 3.04 PM_
 
 Fred has requested a code a review from Wilma for a major change in the team admin view. Wilma pulls the branch on her machine and tests out the changes — they seem to be working. She starts by checking diff stats between the branch (`feature/admin-updates`) and `develop` (destination).
 
@@ -154,7 +152,6 @@ Notice that the focus is on breaking down a big change into smaller chunks, iden
 
 By providing smaller commits with proper messages you are conveying your mental model of the solution to the reviewer. This reduces friction and ensures that the developer and reviewer are on the same page.
 
-
 ## 4. Changelog
 
 > Daphne, Engineering Manager
@@ -187,6 +184,6 @@ ac6b15ae Fixed an issue where login button was disabled for users on the enterpr
 
 These messages clearly explain the changes and also get rid of unnecessary messages. Anyone going through this can easily obtain an overview of the changes in a specific version. This comes in extremely handy while developing public packages — your consumers know exactly what was changed.
 
-___
+---
 
 Over time, I have come to think of commit messages as little sticky notes associated with my code which provide readers with much needed context. The next time they look at my code and scream “Why?”, in disbelief, I hope my commit message can placate them.

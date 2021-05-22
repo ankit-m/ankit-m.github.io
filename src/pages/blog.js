@@ -1,27 +1,25 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
+import React from "react"
+import { Link, graphql } from "gatsby"
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-export default function BlogIndex ({ data, location }) {
-  const posts = data.allMarkdownRemark.edges;
+export default function BlogIndex({ data, location }) {
+  const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} active='blog'>
-      <SEO title='Blog' />
+    <Layout location={location} active="blog">
+      <SEO title="Blog" />
 
-      <h1 className='accent-font'>Blog</h1>
+      <h1 className="accent-font">Blog</h1>
 
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
+        const title = node.frontmatter.title || node.fields.slug
 
         return (
           <article key={node.fields.slug}>
             <h3>
-              <Link to={`/blog${node.fields.slug}`}>
-                {title}
-              </Link>
+              <Link to={`/blog${node.fields.slug}`}>{title}</Link>
             </h3>
             <small>{node.frontmatter.date}</small>
             <section>
@@ -32,11 +30,11 @@ export default function BlogIndex ({ data, location }) {
               />
             </section>
           </article>
-        );
+        )
       })}
     </Layout>
-  );
-};
+  )
+}
 
 export const pageQuery = graphql`
   query {
@@ -61,4 +59,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
+import React from "react"
+import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Bio from "../components/bio"
-import Layout from '../components/layout';
-import Seo from '../components/seo';
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
-const BlogPostWrapper = styled.article``;
+const BlogPostWrapper = styled.article``
 
 const MarkdownWrapper = styled.section`
   color: var(--gray-900);
@@ -16,12 +16,15 @@ const MarkdownWrapper = styled.section`
     margin-top: var(--spacing-5);
   }
 
-  ul, ol {
+  ul,
+  ol {
     padding-left: var(--spacing-4);
     list-style-position: inside;
   }
 
-  p, ul, li {
+  p,
+  ul,
+  li {
     color: var(--gray-700);
   }
 
@@ -69,11 +72,16 @@ const MarkdownWrapper = styled.section`
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: var(--spacing-6);
     margin-bottom: var(--spacing-3);
   }
-`;
+`
 
 const BottomNavigationWrapper = styled.nav`
   display: flex;
@@ -81,7 +89,7 @@ const BottomNavigationWrapper = styled.nav`
   flex-wrap: wrap;
   padding: 0;
   margin: 32px 16px;
-`;
+`
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -89,7 +97,7 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
 
   return (
-    <Layout location={location} title={siteTitle} active='blog'>
+    <Layout location={location} title={siteTitle} active="blog">
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
