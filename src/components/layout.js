@@ -1,36 +1,18 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React, { Fragment } from 'react';
+import Header from './Header';
+import Main from './Main';
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
-  let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
+const Layout = ({ active, children, location }) => {
+  const rootPath = `${__PATH_PREFIX__}/`;
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
-    </div>
-  )
-}
+    <Fragment>
+      <Header active={active} />
+      <Main className={location.pathname !== rootPath && 'offset-header'}>
+        {children}
+      </Main>
+    </Fragment>
+  );
+};
 
-export default Layout
+export default Layout;

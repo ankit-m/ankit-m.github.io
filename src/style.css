@@ -27,12 +27,12 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
-  --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
+  --fontFamily-sans: system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
+  --fontFamily-serif: "Georgia", Cambria, "Times New Roman",
     Times, serif;
-  --font-body: var(--fontFamily-serif);
+  --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
   --fontWeight-medium: 500;
@@ -60,6 +60,49 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+
+  --pink-light: #f687b3;
+  --pink: #d53f8c;
+  --pink-dark: #97266d;
+  --purple-light: #b794f4;
+  --purple: #805ad5;
+  --purple-dark: #553c9a;
+  --indigo-light: #7f9cf5;
+  --indigo: #5a67d8;
+  --indigo-dark: #434190;
+  --blue-light: #63b3ed;
+  --blue: #3182ce;
+  --blue-dark: #2c5282;
+  --teal-light: #4fd1c5;
+  --teal: #319795;
+  --teal-dark: #285e61;
+  --green-light: #68d391;
+  --green: #38a169;
+  --green-dark: #276749;
+  --yellow-light: #fefcbf;
+  --yellow: #f6e05e;
+  --yellow-dark: #d69e2e;
+  --red-light: #fc8181;
+  --red: #e53e3e;
+  --red-dark: #9b2c2c;
+  --orange-light: #fbd38d;
+  --orange: #ed8936;
+  --orange-dark: #c05621;
+  --gray-100: #f7fafc;
+  --gray-200: #edf2f7;
+  --gray-300: #e2e8f0;
+  --gray-400: #cbd5e0;
+  --gray-500: #a0aec0;
+  --gray-600: #718096;
+  --gray-700: #4a5568;
+  --gray-800: #2d3748;
+  --gray-900: #1a202c;
+  --text-light: #718096;
+
+  --media-sm: 572px;
+  --media-md: 768px;
+  --media-lg: 992px;
+  --media-xl: 1200px;
 }
 
 /* HTML elements */
@@ -79,7 +122,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: var(--fontSize-1);
+  font-size: 18px;
   color: var(--color-text);
 }
 
@@ -231,6 +274,7 @@ table thead tr th {
 
 a {
   color: var(--color-primary);
+  text-decoration: none;
 }
 
 a:hover,
@@ -330,4 +374,36 @@ a:focus {
   ol {
     list-style-position: inside;
   }
+}
+
+
+/*Custom*/
+
+.text-pink {
+  color: var(--pink);
+}
+
+.text-purple {
+  color: var(--purple);
+}
+
+.text-indigo {
+  color: var(--indigo);
+}
+
+.text-blue {
+  color: var(--blue);
+}
+
+.text-teal {
+  color: var(--teal);
+}
+
+.text-green {
+  color: var(--green);
+}
+
+.accent-font {
+  font-family: var(--fontFamily-sans);
+  /* font-family: 'Lexend Deca', sans-serif; */
 }
