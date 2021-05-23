@@ -1,0 +1,372 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.6d82a24cc2891ca3975f.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 3.5.1"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=0dfc5ba75293b531410f8fdddf652c20" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=0dfc5ba75293b531410f8fdddf652c20"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=0dfc5ba75293b531410f8fdddf652c20"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=0dfc5ba75293b531410f8fdddf652c20"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=0dfc5ba75293b531410f8fdddf652c20"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=0dfc5ba75293b531410f8fdddf652c20"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=0dfc5ba75293b531410f8fdddf652c20"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=0dfc5ba75293b531410f8fdddf652c20"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=0dfc5ba75293b531410f8fdddf652c20"/><title data-react-helmet="true">UI Testing with Puppeteer and Mocha - Part 1 | Ankit Muchhala</title><meta data-react-helmet="true" name="description" content="Puppeteer is a great tool to programmatically test UIs. This blogpost will help you setup puppeteer with mocha and write basic tests."/><meta data-react-helmet="true" property="og:title" content="UI Testing with Puppeteer and Mocha - Part 1"/><meta data-react-helmet="true" property="og:description" content="Puppeteer is a great tool to programmatically test UIs. This blogpost will help you setup puppeteer with mocha and write basic tests."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="ankit_muchhala"/><meta data-react-helmet="true" name="twitter:title" content="UI Testing with Puppeteer and Mocha - Part 1"/><meta data-react-helmet="true" name="twitter:description" content="Puppeteer is a great tool to programmatically test UIs. This blogpost will help you setup puppeteer with mocha and write basic tests."/><style data-styled="" data-styled-version="5.3.0">.gQnkZg{height:64px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0 1rem;position:fixed;width:100%;background:white;z-index:10;top:0;box-shadow:0 3px 3px var(--gray-300);}/*!sc*/
+.gQnkZg .site-title{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:0;-webkit-letter-spacing:-1.5px;-moz-letter-spacing:-1.5px;-ms-letter-spacing:-1.5px;letter-spacing:-1.5px;font-weight:var(--fontWeight-extrabold);font-size:32px;text-transform:lowercase;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.gQnkZg .site-title .gatsby-image-wrapper{margin-right:var(--spacing-2);margin-bottom:-2px;}/*!sc*/
+.gQnkZg .site-title .gatsby-image-wrapper img{border-radius:50%;}/*!sc*/
+.gQnkZg .site-title:hover,.gQnkZg .site-title:active,.gQnkZg .site-title:visited{color:initial;}/*!sc*/
+.gQnkZg nav{font-size:22px;display:none;margin-right:1rem;font-weight:var(--fontWeight-bold);}/*!sc*/
+.gQnkZg nav a{margin-right:1.5rem;-webkit-letter-spacing:-0.5px;-moz-letter-spacing:-0.5px;-ms-letter-spacing:-0.5px;letter-spacing:-0.5px;padding:18px 0;text-transform:lowercase;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.gQnkZg nav a.active,.gQnkZg nav a:hover{border-bottom:3px solid;}/*!sc*/
+@media (min-width:572px){.gQnkZg nav{display:block;}}/*!sc*/
+data-styled.g1[id="Header__HeaderWrapper-gdfkso-0"]{content:"gQnkZg,"}/*!sc*/
+.iQsVRJ{max-width:920px;margin:0 auto;padding:0 16px;}/*!sc*/
+.iQsVRJ.offset-header{margin-top:92px;}/*!sc*/
+data-styled.g2[id="Main__MainWrapper-sc-1k4p24z-0"]{content:"iQsVRJ,"}/*!sc*/
+{/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */}/*!sc*/
+html{line-height:1.15;-webkit-text-size-adjust:100%;}/*!sc*/
+body{margin:0;}/*!sc*/
+main{display:block;}/*!sc*/
+h1{font-size:2em;margin:0.67em 0;}/*!sc*/
+hr{box-sizing:content-box;height:0;overflow:visible;}/*!sc*/
+pre{font-family:monospace,monospace;font-size:1em;}/*!sc*/
+a{background-color:transparent;}/*!sc*/
+abbr[title]{border-bottom:none;-webkit-text-decoration:underline;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted;}/*!sc*/
+b,strong{font-weight:bolder;}/*!sc*/
+code,kbd,samp{font-family:monospace,monospace;font-size:1em;}/*!sc*/
+small{font-size:80%;}/*!sc*/
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}/*!sc*/
+sub{bottom:-0.25em;}/*!sc*/
+sup{top:-0.5em;}/*!sc*/
+img{border-style:none;}/*!sc*/
+button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}/*!sc*/
+button,input{overflow:visible;}/*!sc*/
+button,select{text-transform:none;}/*!sc*/
+button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button;}/*!sc*/
+button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0;}/*!sc*/
+button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText;}/*!sc*/
+fieldset{padding:0.35em 0.75em 0.625em;}/*!sc*/
+legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal;}/*!sc*/
+progress{vertical-align:baseline;}/*!sc*/
+textarea{overflow:auto;}/*!sc*/
+[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0;}/*!sc*/
+[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto;}/*!sc*/
+[type="search"]{-webkit-appearance:textfield;outline-offset:-2px;}/*!sc*/
+[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}/*!sc*/
+::-webkit-file-upload-button{-webkit-appearance:button;font:inherit;}/*!sc*/
+details{display:block;}/*!sc*/
+summary{display:list-item;}/*!sc*/
+[hidden]{display:none;}/*!sc*/
+:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:system-ui,-apple-system,BlinkMacSystemFont, "Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Georgia",Cambria,"Times New Roman", Times,serif;--font-body:var(--fontFamily-sans);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-medium:500;--fontWeight-semibold:600;--fontWeight-bold:700;--fontWeight-extrabold:800;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#005b99;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:black;--color-accent:#d1dce5;--pink-light:#f687b3;--pink:#d53f8c;--pink-dark:#97266d;--purple-light:#b794f4;--purple:#805ad5;--purple-dark:#553c9a;--indigo-light:#7f9cf5;--indigo:#5a67d8;--indigo-dark:#434190;--blue-light:#63b3ed;--blue:#3182ce;--blue-dark:#2c5282;--teal-light:#4fd1c5;--teal:#319795;--teal-dark:#285e61;--green-light:#68d391;--green:#38a169;--green-dark:#276749;--yellow-light:#fefcbf;--yellow:#f6e05e;--yellow-dark:#d69e2e;--red-light:#fc8181;--red:#e53e3e;--red-dark:#9b2c2c;--orange-light:#fbd38d;--orange:#ed8936;--orange-dark:#c05621;--gray-100:#f7fafc;--gray-200:#edf2f7;--gray-300:#e2e8f0;--gray-400:#cbd5e0;--gray-500:#a0aec0;--gray-600:#718096;--gray-700:#4a5568;--gray-800:#2d3748;--gray-900:#1a202c;--text-light:#718096;--media-sm:572px;--media-md:768px;--media-lg:992px;--media-xl:1200px;}/*!sc*/
+*,:after,:before{box-sizing:border-box;}/*!sc*/
+html{line-height:var(--lineHeight-normal);font-size:var(--fontSize-root);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}/*!sc*/
+body{font-family:var(--font-body);font-size:18px;color:var(--color-text);}/*!sc*/
+footer{padding:var(--spacing-6) var(--spacing-0);}/*!sc*/
+hr{background:var(--color-accent);height:1px;border:0;}/*!sc*/
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);margin-top:var(--spacing-12);margin-bottom:var(--spacing-6);line-height:var(--lineHeight-tight);-webkit-letter-spacing:-0.025em;-moz-letter-spacing:-0.025em;-ms-letter-spacing:-0.025em;letter-spacing:-0.025em;}/*!sc*/
+h2,h3,h4,h5,h6{font-weight:var(--fontWeight-bold);color:var(--color-heading);}/*!sc*/
+h1{font-weight:var(--fontWeight-black);font-size:var(--fontSize-6);color:var(--color-heading-black);}/*!sc*/
+h2{font-size:var(--fontSize-5);}/*!sc*/
+h3{font-size:var(--fontSize-4);}/*!sc*/
+h4{font-size:var(--fontSize-3);}/*!sc*/
+h5{font-size:var(--fontSize-2);}/*!sc*/
+h6{font-size:var(--fontSize-1);}/*!sc*/
+h1 > a{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+h2 > a,h3 > a,h4 > a,h5 > a,h6 > a{-webkit-text-decoration:none;text-decoration:none;color:inherit;}/*!sc*/
+p{line-height:var(--lineHeight-relaxed);--baseline-multiplier:0.179;--x-height-multiplier:0.35;margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);padding:var(--spacing-0);}/*!sc*/
+ul,ol{margin-left:var(--spacing-0);margin-right:var(--spacing-0);padding:var(--spacing-0);margin-bottom:var(--spacing-8);list-style-position:outside;list-style-image:none;}/*!sc*/
+ul li,ol li{padding-left:var(--spacing-0);margin-bottom:calc(var(--spacing-8) / 2);}/*!sc*/
+li > p{margin-bottom:calc(var(--spacing-8) / 2);}/*!sc*/
+li *:last-child{margin-bottom:var(--spacing-0);}/*!sc*/
+li > ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8) / 2);}/*!sc*/
+blockquote{color:var(--color-text-light);margin-left:calc(-1 * var(--spacing-6));margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);border-left:var(--spacing-1) solid var(--color-primary);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);}/*!sc*/
+blockquote > :last-child{margin-bottom:var(--spacing-0);}/*!sc*/
+blockquote > ul,blockquote > ol{list-style-position:inside;}/*!sc*/
+table{width:100%;margin-bottom:var(--spacing-8);border-collapse:collapse;border-spacing:0.25rem;}/*!sc*/
+table thead tr th{border-bottom:1px solid var(--color-accent);}/*!sc*/
+a{color:var(--color-primary);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+a:hover,a:focus{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5);}/*!sc*/
+.global-wrapper[data-is-root-path="true"] .bio{margin-bottom:var(--spacing-20);}/*!sc*/
+.global-header{margin-bottom:var(--spacing-12);}/*!sc*/
+.main-heading{font-size:var(--fontSize-7);margin:0;}/*!sc*/
+.post-list-item{margin-bottom:var(--spacing-8);margin-top:var(--spacing-8);}/*!sc*/
+.post-list-item p{margin-bottom:var(--spacing-0);}/*!sc*/
+.post-list-item h2{font-size:var(--fontSize-4);color:var(--color-primary);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0);}/*!sc*/
+.post-list-item header{margin-bottom:var(--spacing-4);}/*!sc*/
+.header-link-home{font-weight:var(--fontWeight-bold);font-family:var(--font-heading);-webkit-text-decoration:none;text-decoration:none;font-size:var(--fontSize-2);}/*!sc*/
+.bio{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-bottom:var(--spacing-16);}/*!sc*/
+.bio p{margin-bottom:var(--spacing-0);}/*!sc*/
+.bio-avatar{margin-right:var(--spacing-4);margin-bottom:var(--spacing-0);min-width:50px;border-radius:100%;}/*!sc*/
+.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);}/*!sc*/
+.blog-post header p{font-size:var(--fontSize-2);font-family:var(--font-heading);}/*!sc*/
+.blog-post-nav ul{margin:var(--spacing-0);}/*!sc*/
+.gatsby-highlight{margin-bottom:var(--spacing-8);}/*!sc*/
+@media (max-width:42rem){blockquote{padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);margin-left:var(--spacing-0);}ul,ol{list-style-position:inside;}}/*!sc*/
+.text-pink{color:var(--pink);}/*!sc*/
+.text-purple{color:var(--purple);}/*!sc*/
+.text-indigo{color:var(--indigo);}/*!sc*/
+.text-blue{color:var(--blue);}/*!sc*/
+.text-teal{color:var(--teal);}/*!sc*/
+.text-green{color:var(--green);}/*!sc*/
+.accent-font{font-family:var(--fontFamily-sans);}/*!sc*/
+data-styled.g3[id="sc-global-kKfnJY1"]{content:"sc-global-kKfnJY1,"}/*!sc*/
+.kMZkCH .publish-date{margin-bottom:0;}/*!sc*/
+data-styled.g21[id="blog-post__BlogPostWrapper-sc-14snplu-0"]{content:"kMZkCH,"}/*!sc*/
+.bkwVwH{color:var(--gray-900);}/*!sc*/
+.bkwVwH p{margin-bottom:var(--spacing-5);margin-top:var(--spacing-5);}/*!sc*/
+.bkwVwH ul,.bkwVwH ol{padding-left:var(--spacing-4);list-style-position:inside;}/*!sc*/
+.bkwVwH p,.bkwVwH ul,.bkwVwH li{color:var(--gray-700);}/*!sc*/
+.bkwVwH code{background-color:var(--gray-100);border-radius:3px;padding:0 4px;}/*!sc*/
+.bkwVwH pre{background-color:var(--gray-100);padding:16px;overflow-x:auto;margin-left:-16px;margin-right:-16px;border-radius:3px;}/*!sc*/
+.bkwVwH blockquote{border-left:4px solid var(--gray-300);margin-left:0;padding-left:1rem;}/*!sc*/
+.bkwVwH hr{border:none;height:2px;background-color:var(--gray-300);box-shadow:none;}/*!sc*/
+.bkwVwH figure{text-align:center;}/*!sc*/
+.bkwVwH figure img{max-width:640px;width:100%;}/*!sc*/
+.bkwVwH figure figcaption{text-align:center;font-size:0.8rem;margin:8px 0;color:var(--gray-500);}/*!sc*/
+.bkwVwH h1,.bkwVwH h2,.bkwVwH h3,.bkwVwH h4,.bkwVwH h5,.bkwVwH h6{margin-top:var(--spacing-6);margin-bottom:var(--spacing-3);}/*!sc*/
+data-styled.g22[id="blog-post__MarkdownWrapper-sc-14snplu-1"]{content:"bkwVwH,"}/*!sc*/
+.jNtuiO{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:0;margin:32px 0;}/*!sc*/
+.jNtuiO a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:16px;}/*!sc*/
+data-styled.g23[id="blog-post__BottomNavigationWrapper-sc-14snplu-2"]{content:"jNtuiO,"}/*!sc*/
+</style><link as="script" rel="preload" href="/webpack-runtime-f4193e8e6fea913ddf63.js"/><link as="script" rel="preload" href="/framework-bfd4ae306bd9f780aaab.js"/><link as="script" rel="preload" href="/app-a0ef77f1eadf41a3a6b6.js"/><link as="script" rel="preload" href="/commons-d0b83d914531f80ec9da.js"/><link as="script" rel="preload" href="/d73d9b0d0299fc6e3dac4170b8ef33dcc7092795-36196e35ead42d91ede5.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-5f7fe746eead9f22113a.js"/><link as="fetch" rel="preload" href="/page-data/blog/ui-testing-with-puppeteer-and-mocha/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3257411868.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__HeaderWrapper-gdfkso-0 gQnkZg accent-font "><a class="site-title" href="/"><div data-gatsby-image-wrapper="" style="width:32px;height:32px" class="gatsby-image-wrapper"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#080808;width:32px;height:32px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/618d4da3040f24747ab0e99e703a48fd/8e9fb/avatar.avif 32w,/static/618d4da3040f24747ab0e99e703a48fd/cc6c8/avatar.avif 64w" sizes="32px"/><source type="image/webp" data-srcset="/static/618d4da3040f24747ab0e99e703a48fd/3d4da/avatar.webp 32w,/static/618d4da3040f24747ab0e99e703a48fd/541c0/avatar.webp 64w" sizes="32px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="32px" decoding="async" loading="lazy" data-src="/static/618d4da3040f24747ab0e99e703a48fd/70de6/avatar.jpg" data-srcset="/static/618d4da3040f24747ab0e99e703a48fd/70de6/avatar.jpg 32w,/static/618d4da3040f24747ab0e99e703a48fd/df4a6/avatar.jpg 64w" alt="Twitter Profile"/></picture><noscript><picture><source type="image/avif" srcSet="/static/618d4da3040f24747ab0e99e703a48fd/8e9fb/avatar.avif 32w,/static/618d4da3040f24747ab0e99e703a48fd/cc6c8/avatar.avif 64w" sizes="32px"/><source type="image/webp" srcSet="/static/618d4da3040f24747ab0e99e703a48fd/3d4da/avatar.webp 32w,/static/618d4da3040f24747ab0e99e703a48fd/541c0/avatar.webp 64w" sizes="32px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="32px" decoding="async" loading="lazy" src="/static/618d4da3040f24747ab0e99e703a48fd/70de6/avatar.jpg" srcSet="/static/618d4da3040f24747ab0e99e703a48fd/70de6/avatar.jpg 32w,/static/618d4da3040f24747ab0e99e703a48fd/df4a6/avatar.jpg 64w" alt="Twitter Profile"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}</script></div>ankit muchhala</a><nav><a class="text-pink " href="/">Home</a><a class="text-purple active" href="/blog">Blog</a><a class="text-indigo " href="/talks">Talks</a><a class="text-blue " href="/comics">Comics</a><a class="text-teal " href="/food">Food</a><a class="text-green " href="/consulting">Consulting</a></nav></header><main class="Main__MainWrapper-sc-1k4p24z-0 iQsVRJ offset-header"><article class="blog-post__BlogPostWrapper-sc-14snplu-0 kMZkCH blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">UI Testing with Puppeteer and Mocha - Part 1</h1><p class="publish-date">November 21, 2017</p></header><section itemProp="articleBody" class="blog-post__MarkdownWrapper-sc-14snplu-1 bkwVwH"><h2>1. Introduction 🤝</h2>
+<p>If you have ever built a web app, you know the pain of testing the entire application every time you add a new feature. Yes, you just modified one isolated module of the code and it _should not_affect anything else. But there a tiny sliver of doubt in a dark corner of your mind, “What if it broke something?”.</p>
+<p>To remove this doubt, you spend quite a lot of time testing all other flows to make sure you did not accidentally break anything <em>major</em>. There is always a chance of you missing edge cases. So you go ahead and deploy with the hope that nothing breaks. By no means, is this a reliable way of testing. But we still do it. The only way to get rid of this unreliability is to write tests which verify your flows viz. <strong>UI Testing</strong>.</p>
+<p>This series is an attempt to get you started with UI testing using <strong>puppeteer</strong> and <strong>mocha</strong>. It starts from scratch and assumes basic knowledge of JavaScript. Part 1 deals with setting up and getting started with puppeteer.</p>
+<h2>2. The Toolkit 🎒</h2>
+<h3>2.a Mocha</h3>
+<p><a href="https://mochajs.org/">Mocha</a> is a JavaScript testing framework. It provides a lot of methods like <code class="language-text">describe</code>, <code class="language-text">it</code>, <code class="language-text">before</code>, etc. to organise your tests. It provides both command line and programmatic utilities to execute the tests.</p>
+<h3>2.b Chai</h3>
+<p>Mocha by itself is not of much help to us. You need an assertion library with it to actually test things. We will use <a href="http://chaijs.com/">ChaiJS</a> throughout this series. There are other options like expect.js, should.js, etc.</p>
+<h3>2.c Puppeteer</h3>
+<p><a href="https://github.com/GoogleChrome/puppeteer">Puppeteer</a> is a node wrapper around <a href="https://developers.google.com/web/updates/2017/04/headless-chrome">headless Chrome</a> which started shipping with Chrome 59 (For Windows Chrome 60). It provides a lot of convenient methods to access and manipulate DOM, cookies, requests, etc.</p>
+<p>We will use these APIs to access the rendered UI elements and run assertions on them to check if things are working as expected.</p>
+<h2>3. Basic testing setup 🐣</h2>
+<p>Open your terminal and create a new project. You need Node installed on your computer which will expose a <code class="language-text">node</code> and <code class="language-text">npm</code> command. I recommend using <a href="https://github.com/creationix/nvm">nvm</a> to manage node versions. This series uses Node <code class="language-text">v8.9.1</code> and npm <code class="language-text">v5.5.1</code>.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">mkdir</span> puppeteer-mocha
+<span class="token builtin class-name">cd</span> puppeteer-mocha
+<span class="token function">npm</span> init —yes
+<span class="token function">npm</span> i —save mocha@4.0.1 puppeteer@0.13.0 chai@4.1.2 http-server@0.10.0</code></pre></div>
+<blockquote>
+<p>All packages are suffixed with versions to make this future proof. You can skip them if you want. We install <code class="language-text">http-server</code> to start a basic http server for testing. If you already have a server running with a website, you can simply use that.</p>
+</blockquote>
+<p>Now we will create</p>
+<ol>
+<li>Add <code class="language-text">test</code> folder which will contain all the test files</li>
+<li>Add <code class="language-text">src</code> folder which house our test website</li>
+<li>Add npm scripts for starting our server and running tests</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token builtin class-name">test</span> src
+<span class="token function">touch</span> test/sample.spec.js
+<span class="token function">touch</span> src/index.html</code></pre></div>
+<p>To start off, we will create a very basic website which we can test. Here is what <code class="language-text">index.html</code> looks like.</p>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Puppeteer Mocha<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Page Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>main-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Some paragraph text<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre></div>
+<p>Now add the following two scripts to your package.json . The test script tells mocha to execute all files in the folder test . The recursive option tells it to go inside directories, if any, and get files. The server script serves your index.html on <a href="http://127.0.0.1:8080/">http://127.0.0.1:8080</a>.</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">...
+<span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"mocha --recursive test"</span><span class="token punctuation">,</span>
+    <span class="token property">"server"</span><span class="token operator">:</span> <span class="token string">"http-server src"</span>
+ <span class="token punctuation">}</span>
+...</code></pre></div>
+<p>Finally, let’s add a sample test to check if everything is working as expected. Add the following code to <code class="language-text">sample.spec.js</code>.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> expect <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"chai"</span><span class="token punctuation">)</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"sample test"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"should work"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>Now run <code class="language-text">npm test</code> and you should see an output like this -</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sample test
+  ✓ should work</code></pre></div>
+<h2>4. Bringing in Puppeteer 🚂</h2>
+<p>We want to start one instance of the browser (headless Chrome in this case) and reuse the same instance to run all our tests. Each test will open a new tab, browse to the URL, run tests against the view and then close the tab. We will do all the setup in <code class="language-text">test/bootstrap.js</code> and expose required variables to be used across tests.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> puppeteer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"puppeteer"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> expect <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"chai"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> _ <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"lodash"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> globalVariables <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">pick</span><span class="token punctuation">(</span>global<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"browser"</span><span class="token punctuation">,</span> <span class="token string">"expect"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">// puppeteer options</span>
+<span class="token keyword">const</span> opts <span class="token operator">=</span> <span class="token punctuation">{</span>
+  headless<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  slowMo<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  timeout<span class="token operator">:</span> <span class="token number">10000</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// expose variables</span>
+<span class="token function">before</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  global<span class="token punctuation">.</span>expect <span class="token operator">=</span> expect
+  global<span class="token punctuation">.</span>browser <span class="token operator">=</span> <span class="token keyword">await</span> puppeteer<span class="token punctuation">.</span><span class="token function">launch</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// close browser and reset global variables</span>
+<span class="token function">after</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  browser<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  global<span class="token punctuation">.</span>browser <span class="token operator">=</span> globalVariables<span class="token punctuation">.</span>browser
+  global<span class="token punctuation">.</span>expect <span class="token operator">=</span> globalVariables<span class="token punctuation">.</span>expect
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>The <code class="language-text">before</code> block is responsible to setup everything required for all the tests. It will execute once before all tests. It exposes the <code class="language-text">browser</code> instance and <code class="language-text">expect</code> function so that we don’t have to require it in all the test files. The <code class="language-text">after</code> block cleans up the environment, once all tests are completed. I have also used <a href="https://lodash.com/">Lodash</a> for some convenience methods.</p>
+<p>The important things to note are <code class="language-text">puppeteer.launch</code> and <code class="language-text">opts</code>. As the name suggests, <code class="language-text">launch</code> starts a chrome browser based on the options provided.</p>
+<ul>
+<li>I have turned off the headless mode with <code class="language-text">headless: false</code>. This will open a Chromium window when you run the test.</li>
+<li>Added timeout of 10 seconds (any test taking longer than that will fail)</li>
+<li>Slowed down each operation by <code class="language-text">100ms</code>. This is not required right now, but comes in handy when you want to see what is happening in the browser.</li>
+</ul>
+<p>You need to tweak your test script a little</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">...
+<span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"mocha test/bootstrap.js --recursive test"</span><span class="token punctuation">,</span>
+...</code></pre></div>
+<p>We will now update <code class="language-text">test/sample.spec.js</code>. To do something with this browser instance exposed. To check, we just log the browser version.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// test/sample.spec.js</span>
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"sample test"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"should work"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">await</span> browser<span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>Now, when you run <code class="language-text">npm test</code>. You should see the Chrome version logged. The version might differ for you as puppeteer installs the latest version of Chromium available.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sample test
+Chrome/64.0.3264.0
+   ✓ should work (103ms)</code></pre></div>
+<h3>4.a Without using async/await</h3>
+<p>For many reasons you might not prefer to use async/await syntax. You can achieve the exact same by just using promises. Since most puppeteer functions return promises, all you have to do is wait for them to resolve. The mocha <code class="language-text">done</code> method comes in handy.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// test/sample.spec.js</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"sample test"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"should work"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">done</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    browser<span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+
+      <span class="token function">expect</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token boolean">true</span>
+      <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// test/bootstrap.js</span>
+
+<span class="token keyword">const</span> puppeteer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"puppeteer"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> expect <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"chai"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> _ <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"lodash"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> globalVariables <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">pick</span><span class="token punctuation">(</span>global<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"browser"</span><span class="token punctuation">,</span> <span class="token string">"expect"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">// puppeteer options</span>
+<span class="token keyword">const</span> opts <span class="token operator">=</span> <span class="token punctuation">{</span>
+  headless<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  slowMo<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  timeout<span class="token operator">:</span> <span class="token number">10000</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// expose variables</span>
+<span class="token function">before</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">done</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  global<span class="token punctuation">.</span>expect <span class="token operator">=</span> expect
+
+  puppeteer<span class="token punctuation">.</span><span class="token function">launch</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">browser</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    global<span class="token punctuation">.</span>browser <span class="token operator">=</span> browser
+    <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// close browser and reset global variables</span>
+<span class="token function">after</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  browser<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  global<span class="token punctuation">.</span>browser <span class="token operator">=</span> globalVariables<span class="token punctuation">.</span>browser
+  global<span class="token punctuation">.</span>expect <span class="token operator">=</span> globalVariables<span class="token punctuation">.</span>expect
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>I prefer using <code class="language-text">async/await</code> as it looks cleaner and is much more readable, especially for more complex tests.</p>
+<p>You can view the code at this stage <a href="https://github.com/ankit-m/puppeteer-mocha/tree/integrate-puppeteer">here</a>.</p>
+<h2>5. Writing your first UI test 🚀</h2>
+<p>Now that we have set things up, it’s time to write tests. This is how our webpage looks right now. Pretty boring! I agree.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/be398e4d11f4d84febc5e9758989246b/3508d/web-page.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 12.658227848101264%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQI12P4+/fvf3IBw38KAEWaARXjs0eRRSSPAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Sample web page"
+        title="Sample web page"
+        src="/static/be398e4d11f4d84febc5e9758989246b/f058b/web-page.png"
+        srcset="/static/be398e4d11f4d84febc5e9758989246b/c26ae/web-page.png 158w,
+/static/be398e4d11f4d84febc5e9758989246b/6bdcf/web-page.png 315w,
+/static/be398e4d11f4d84febc5e9758989246b/f058b/web-page.png 630w,
+/static/be398e4d11f4d84febc5e9758989246b/40601/web-page.png 945w,
+/static/be398e4d11f4d84febc5e9758989246b/78612/web-page.png 1260w,
+/static/be398e4d11f4d84febc5e9758989246b/3508d/web-page.png 3316w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>We want to test the following things:</p>
+<ol>
+<li>The page title is “Puppeteer Mocha”</li>
+<li>The heading is “Page Title” (Sorry for the confusing heading)</li>
+<li>There is a paragraph with “Some paragraph text” in it</li>
+</ol>
+<p>Puppeteer has a lot of classes like Page, Frame, Request, etc. Each of these classes provide helper methods to access and interact with the page content. The usual workflow is to open the page, wait for a selector and then validate the content once the selectors resolve. This is how basic tests look like:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// test/sample.spec.js</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"sample test"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> page
+
+  <span class="token function">before</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    page <span class="token operator">=</span> <span class="token keyword">await</span> browser<span class="token punctuation">.</span><span class="token function">newPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">goto</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8080"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token function">after</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"should have the correct page title"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span><span class="token function">eql</span><span class="token punctuation">(</span><span class="token string">"Puppeteer Mocha"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"should have a heading"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token constant">HEADING_SELECTOR</span> <span class="token operator">=</span> <span class="token string">"h1"</span>
+    <span class="token keyword">let</span> heading
+
+    <span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token constant">HEADING_SELECTOR</span><span class="token punctuation">)</span>
+    heading <span class="token operator">=</span> <span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">$eval</span><span class="token punctuation">(</span><span class="token constant">HEADING_SELECTOR</span><span class="token punctuation">,</span> <span class="token parameter">heading</span> <span class="token operator">=></span> heading<span class="token punctuation">.</span>innerText<span class="token punctuation">)</span>
+
+    <span class="token function">expect</span><span class="token punctuation">(</span>heading<span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span><span class="token function">eql</span><span class="token punctuation">(</span><span class="token string">"Page Title"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"should have a single content section"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token constant">BODY_SELECTOR</span> <span class="token operator">=</span> <span class="token string">".main-content"</span>
+
+    <span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token constant">BODY_SELECTOR</span><span class="token punctuation">)</span>
+
+    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">$$</span><span class="token punctuation">(</span><span class="token constant">BODY_SELECTOR</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span>have<span class="token punctuation">.</span><span class="token function">lengthOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>There is a lot going on in this spec file. Let’s look at it one by one.</p>
+<p>We first open a new page in the <code class="language-text">before</code> block and navigate to <a href="http://localhost:8080./">http://localhost:8080.</a> This is equivalent to you opening a new tab in chrome, typing the URL and pressing enter. Since, the variable page is defined in the <code class="language-text">describe</code> block, all <code class="language-text">it</code> blocks (specs) have access to the page. This allows us to segregate our tests and make them more readable.</p>
+<p>The first test simply checks the page title and expects it to be equal to “Puppeteer Mocha”.</p>
+<p>The second test checks for the heading. <code class="language-text">page.$eval</code> takes two arguments <code class="language-text">selector</code> and <code class="language-text">pageFunction</code>. It runs a <code class="language-text">document.querySelector</code> in the browser environment and passes the result to the <code class="language-text">pageFunction</code>. Finally, it resolves with the value returned by <code class="language-text">pageFunction</code>. In this case, we are just returning the text for <code class="language-text">h1</code> tag.</p>
+<p>The third test checks for the existence of just one element with class <code class="language-text">main-content</code>. The <code class="language-text">page.$$</code> expects only the selector as a parameter. It runs a <code class="language-text">document.querySelectorAll</code> in the browser environment and returns an array of <code class="language-text">elementHandle</code>. You can imagine <code class="language-text">elementHandle</code> as a wrapper around an HTML element with helper functions which make it easier to interact and test them.</p>
+<p>You can view the code at this stage <a href="https://github.com/ankit-m/puppeteer-mocha/tree/basic-tests">here</a>.</p>
+<h2>6. Conclusion 💯</h2>
+<p>In this part we have barely scraped the surface of puppeteer. I hope you have gotten a feel of UI testing. Over the next parts, we will dive deep into testing complex webpages and interactions.</p></section></article><nav class="blog-post__BottomNavigationWrapper-sc-14snplu-2 jNtuiO"><a rel="next" href="/blog/building-highly-customizable-react-components/">Building highly customizable React components<!-- --> →</a></nav></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6SG591W98G"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer && window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6SG591W98G', {"send_page_view":false});
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/ui-testing-with-puppeteer-and-mocha/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-16d31d2a73b82db9dee5.js"],"app":["/app-a0ef77f1eadf41a3a6b6.js"],"component---src-pages-404-js":["/component---src-pages-404-js-acf7895071bd11057b68.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-60603e2819b88146cf0d.js"],"component---src-pages-comics-js":["/component---src-pages-comics-js-37919fea78c78d8d1603.js"],"component---src-pages-consulting-js":["/component---src-pages-consulting-js-e54c7285cd1f2dc240b2.js"],"component---src-pages-food-js":["/component---src-pages-food-js-4c3136ee51ae2e34af65.js"],"component---src-pages-index-js":["/component---src-pages-index-js-b85fc466143deaaad94e.js"],"component---src-pages-talks-js":["/component---src-pages-talks-js-01bcedf7b83b713d9fae.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-5f7fe746eead9f22113a.js"]};/*]]>*/</script><script src="/polyfill-16d31d2a73b82db9dee5.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-5f7fe746eead9f22113a.js" async=""></script><script src="/d73d9b0d0299fc6e3dac4170b8ef33dcc7092795-36196e35ead42d91ede5.js" async=""></script><script src="/commons-d0b83d914531f80ec9da.js" async=""></script><script src="/app-a0ef77f1eadf41a3a6b6.js" async=""></script><script src="/framework-bfd4ae306bd9f780aaab.js" async=""></script><script src="/webpack-runtime-f4193e8e6fea913ddf63.js" async=""></script></body></html>
