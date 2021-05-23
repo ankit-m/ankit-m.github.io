@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 import ComicSection from "../components/home/ComicSection"
 import FoodSection from "../components/home/FoodSection"
 import ConsultingSection from "../components/home/ConsultingSection"
+import Seo from "../components/seo"
 
 const BlogIndex = ({ data, location }) => {
   const blogs = data.allMarkdownRemark.edges.map(d => ({
@@ -19,11 +20,8 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout active="home" location={location}>
-      <HomeSection
-      // twitterImg={data.twitter.childImageSharp.fixed}
-      // linkedinImg={data.linkedin.childImageSharp.fixed}
-      // githubImg={data.github.childImageSharp.fixed}
-      />
+      <Seo title="Home" />
+      <HomeSection />
       <BlogSection blogs={blogs} />
       <TalkSection />
       <ComicSection />
