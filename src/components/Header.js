@@ -85,11 +85,10 @@ const HeaderWrapper = styled.header`
   nav {
     font-size: 22px;
     display: none;
-    margin-right: 1rem;
     font-weight: var(--fontWeight-bold);
 
     a {
-      margin-right: 1.5rem;
+      margin-right: 1.2rem;
       letter-spacing: -0.5px;
       padding: 18px 0;
       text-transform: lowercase;
@@ -98,6 +97,10 @@ const HeaderWrapper = styled.header`
       &.active,
       &:hover {
         border-bottom: 3px solid;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
       }
     }
 
