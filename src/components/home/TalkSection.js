@@ -102,6 +102,13 @@ const SuggestedTalks = styled.div`
   }
 `
 
+const ComingSoon = styled(Badge)`
+  font-size: 1em;
+  line-height: 1.5em;
+  height: auto;
+  margin-top: 2em;
+`
+
 export default function BlogSection() {
   return (
     <Section id="talks">
@@ -114,7 +121,7 @@ export default function BlogSection() {
           I like to talk 😅. Sometimes there are a few people listening. Here
           are some of my talks from various tech conferences -
         </p>
-        <SuggestedTalks>
+        {/* <SuggestedTalks>
           <Card title="From REST to GraphQL" color="indigo">
             <TalkCardContent>
               <time dateTime="2020-11-18">
@@ -144,7 +151,8 @@ export default function BlogSection() {
               <Badge>ReactFoo 2018</Badge>
             </TalkCardContent>
           </Card>
-        </SuggestedTalks>
+        </SuggestedTalks> */}
+        <ComingSoon>Coming Soon</ComingSoon>
       </SectionRight>
       <PrevSection id="blog" />
       <NextSection id="comics" label="Comics" />
