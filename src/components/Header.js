@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { StaticImage } from "gatsby-plugin-image"
 
 const navItems = [
   {
@@ -56,12 +57,23 @@ const HeaderWrapper = styled.header`
   box-shadow: 0 3px 3px var(--gray-300);
 
   .site-title {
+    display: flex;
+    align-items: center;
     margin: 0;
     letter-spacing: -1.5px;
     font-weight: var(--fontWeight-extrabold);
     font-size: 32px;
     text-transform: lowercase;
     text-decoration: none;
+
+    .gatsby-image-wrapper {
+      margin-right: var(--spacing-2);
+      margin-bottom: -2px; // to visually align with lowercase
+
+      img {
+        border-radius: 50%;
+      }
+    }
 
     &:hover,
     &:active,
@@ -99,6 +111,15 @@ export default function Header(props) {
   return (
     <HeaderWrapper className={`accent-font ${props.className || ""}`}>
       <Link className="site-title" to="/">
+        <StaticImage
+          layout="fixed"
+          formats={["AUTO", "WEBP", "AVIF"]}
+          src="../images/avatar.jpg"
+          width={32}
+          height={32}
+          quality={95}
+          alt="Twitter Profile"
+        />
         ankit muchhala
       </Link>
 

@@ -6,7 +6,11 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostWrapper = styled.article``
+const BlogPostWrapper = styled.article`
+  .publish-date {
+    margin-bottom: 0;
+  }
+`
 
 const MarkdownWrapper = styled.section`
   color: var(--gray-900);
@@ -88,7 +92,15 @@ const BottomNavigationWrapper = styled.nav`
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0;
-  margin: 32px 16px;
+  margin: 32px 0;
+
+  a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin-bottom: 16px;
+  }
 `
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -109,7 +121,7 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <p className="publish-date">{post.frontmatter.date}</p>
         </header>
         <MarkdownWrapper
           dangerouslySetInnerHTML={{ __html: post.html }}

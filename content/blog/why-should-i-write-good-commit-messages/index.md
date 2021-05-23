@@ -1,7 +1,7 @@
 ---
 title: Why should I write good commit messages?
-date: "2019-07-04T18:30:00.000Z"
-description: Importance of writing commit messages.
+date: "2019-07-05"
+description: People recommend writing good git commit messages without explaining "why". This article provides real-world scenarios which showcase their importance.
 ---
 
 As a fresh graduate, I was excited at the prospect of writing code for a product used by millions of users. I could not wait send my first PR and get it merged. Little did I know that the first comments I would receive were not about my code but about my commit messages and how they need to be better.

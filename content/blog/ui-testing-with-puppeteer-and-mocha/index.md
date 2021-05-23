@@ -1,7 +1,7 @@
 ---
-title: UI Testing with Puppeteer and Mocha
-date: "2019-07-04T18:30:00.000Z"
-description: Importance of writing commit messages.
+title: UI Testing with Puppeteer and Mocha - Part 1
+date: "2017-11-21"
+description: Puppeteer is a great tool to programmatically test UIs. This blogpost will help you setup puppeteer with mocha and write basic tests.
 ---
 
 ## 1. Introduction 🤝
@@ -151,6 +151,7 @@ You need to tweak your test script a little
 We will now update `test/sample.spec.js`. To do something with this browser instance exposed. To check, we just log the browser version.
 
 ```js
+// test/sample.spec.js
 describe("sample test", function () {
   it("should work", async function () {
     console.log(await browser.version())
@@ -160,7 +161,6 @@ describe("sample test", function () {
 })
 ```
 
-test/sample.spec.js
 
 Now, when you run `npm test`. You should see the Chrome version logged. The version might differ for you as puppeteer installs the latest version of Chromium available.
 
@@ -175,6 +175,8 @@ Chrome/64.0.3264.0
 For many reasons you might not prefer to use async/await syntax. You can achieve the exact same by just using promises. Since most puppeteer functions return promises, all you have to do is wait for them to resolve. The mocha `done` method comes in handy.
 
 ```js
+// test/sample.spec.js
+
 describe("sample test", function () {
   it("should work", function (done) {
     browser.version().then(function (v) {
@@ -187,9 +189,9 @@ describe("sample test", function () {
 })
 ```
 
-**test/sample.spec.js**
-
 ```js
+// test/bootstrap.js
+
 const puppeteer = require("puppeteer")
 const { expect } = require("chai")
 const _ = require("lodash")
@@ -221,8 +223,6 @@ after(function () {
 })
 ```
 
-**test/bootstrap.js**
-
 I prefer using `async/await` as it looks cleaner and is much more readable, especially for more complex tests.
 
 You can view the code at this stage [here](https://github.com/ankit-m/puppeteer-mocha/tree/integrate-puppeteer).
@@ -231,7 +231,7 @@ You can view the code at this stage [here](https://github.com/ankit-m/puppeteer-
 
 Now that we have set things up, it’s time to write tests. This is how our webpage looks right now. Pretty boring! I agree.
 
-IMAGEEE
+![Sample web page](./web-page.png)
 
 We want to test the following things:
 
@@ -242,6 +242,8 @@ We want to test the following things:
 Puppeteer has a lot of classes like Page, Frame, Request, etc. Each of these classes provide helper methods to access and interact with the page content. The usual workflow is to open the page, wait for a selector and then validate the content once the selectors resolve. This is how basic tests look like:
 
 ```js
+// test/sample.spec.js
+
 describe("sample test", function () {
   let page
 
@@ -277,8 +279,6 @@ describe("sample test", function () {
   })
 })
 ```
-
-**test/sample.spec.js**
 
 There is a lot going on in this spec file. Let’s look at it one by one.
 

@@ -1,7 +1,7 @@
 ---
 title: Building highly customizable React components
-date: "2018-05-01T22:12:03.284Z"
-description: "Hello World"
+date: "2018-10-20"
+description: React provides a way to build web applications using components. This blogpost outlines ways to design components for high degree of visual and functional customizability.
 ---
 
 Building a React web application, for the most part, is writing [components](https://reactjs.org/docs/glossary.html#components) which combine to form your user interface. But there are certain components which are reused across your entire application — Button, Link, Dropdown, Tooltip, etc.
@@ -12,7 +12,7 @@ No matter how strict the design guidelines are, you cannot expect the same type 
 
 Customizability allows them to be modified, both visually and functionally, to fit in various use cases. This article outlines certain ways to make your React component highly customizable. Throughout this guide, I will use a Dropdown component to illustrate examples.
 
-> **Note:** You do not need to build all your components to be so customizable. For components which you know will not be used anywhere else, can be simple.
+> **Note:** You do not need to build all your components to be so customizable. Components which you know will not be used anywhere else, can be simple.
 
 ## 1. Define boundaries
 

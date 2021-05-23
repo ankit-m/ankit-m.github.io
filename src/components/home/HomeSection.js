@@ -73,19 +73,6 @@ const SocialLinks = styled.div`
   }
 `
 
-const Name = styled.div`
-  display: flex;
-  align-items: center;
-
-  .gatsby-image-wrapper {
-    margin-right: var(--spacing-4);
-
-    img {
-      border-radius: 50%;
-    }
-  }
-`
-
 export default function HomeSection(props) {
   return (
     <Section id="home">
@@ -96,8 +83,9 @@ export default function HomeSection(props) {
         <p>Hi! I am</p>
         <h1 className="text-pink accent-font">Ankit Muchhala</h1>
         <p>
-          I build web products. Currently, helping Postman create an API
-          platform for over 15M users.
+          I build web products. Currently, helping{' '}
+          <a href="https://postman.com" target="_blank" rel="noopener noreferrer">Postman</a> create an API
+          platform for over 15M users. Reach out to me via -
         </p>
         <SocialLinks>
           <a

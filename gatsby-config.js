@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Ankit Muchhala`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Ankit Muchhala`,
+      summary: `I build web products. Currently, helping Postman create an API platform for over 15M users.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `This is my website where I share things I like - tech, food, football, F1, comics, etc.`,
+    siteUrl: `https://ankit-m.github.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `ankit_muchhala`,
     },
   },
   plugins: [
@@ -51,12 +51,14 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `ADD YOUR TRACKING ID HERE`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-6SG591W98G"
+        ]
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -112,17 +114,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Ankit Muchhala`,
+        short_name: `Ankit Muchhala`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/construction.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-styled-components`,
 
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import Badge from "../Badge"
 import Card from "../Card"
 import Icon from "../Icon"
 

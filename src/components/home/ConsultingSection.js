@@ -1,6 +1,15 @@
 import React from "react"
+import styled from "styled-components"
 
 import Section, { PrevSection, SectionLeft, SectionRight } from "./Section"
+import Badge from "../Badge"
+
+const ComingSoon = styled(Badge)`
+  font-size: 1em;
+  line-height: 1.5em;
+  height: auto;
+  margin-top: 2em;
+`
 
 function TuxFigure(props) {
   return (
@@ -72,10 +81,13 @@ export default function ConsultingSection() {
       <SectionRight>
         <h1 className="text-green accent-font">Consulting</h1>
         <p>
-          Given an option between cooking an eating, I would go for the latter.
-          I <strong>love</strong> eating food. I will post photos, videos,
-          recipes and reviews of things I eat.
+          I've worked as an engineer, tech lead and product manager at one of
+          the world's fastest growing SaaS unicorn (Postman). With over 6 years of
+          experience in building web products, I can help your team design and develop
+          the next big thing on the web.
+          <br />
         </p>
+        <ComingSoon>Coming soon</ComingSoon>
       </SectionRight>
       <PrevSection id="food" />
     </Section>

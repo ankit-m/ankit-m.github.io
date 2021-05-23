@@ -1,7 +1,7 @@
 ---
 title: UI Testing with Postman
-date: "2019-07-04T18:30:00.000Z"
-description: How to test static websites using Postman.
+date: "2019-11-01"
+description: Postman is a great tool to build and test APIs. However, it can also be used to test and monitor your websites. Read more to learn how to maintain your web applications.
 ---
 
 [Postman](https://www.getpostman.com/) is a tool commonly used to work with APIs. It provides an easy way to make HTTP calls and run scripts during various phases of the request. We can leverage these features for **continuous and automated** UI testing.
