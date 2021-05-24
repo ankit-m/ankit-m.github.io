@@ -1,5 +1,7 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby";
+
 import Badge from "../Badge"
 import Card from "../Card"
 import Icon from "../Icon"
@@ -102,13 +104,6 @@ const SuggestedTalks = styled.div`
   }
 `
 
-const ComingSoon = styled(Badge)`
-  font-size: 1em;
-  line-height: 1.5em;
-  height: auto;
-  margin-top: 2em;
-`
-
 export default function BlogSection() {
   return (
     <Section id="talks">
@@ -121,38 +116,43 @@ export default function BlogSection() {
           I like to talk 😅. Sometimes there are a few people listening. Here
           are some of my talks from various tech conferences -
         </p>
-        {/* <SuggestedTalks>
-          <Card title="From REST to GraphQL" color="indigo">
-            <TalkCardContent>
-              <time dateTime="2020-11-18">
-                <Icon name="calendar" />
-                Nov 18, 2020
+        <SuggestedTalks>
+          <Link to="/talks#rest-to-graphql">
+            <Card title="From REST to GraphQL" color="indigo">
+              <TalkCardContent>
+                <time dateTime="2020-11-18">
+                  <Icon name="calendar" />
+                Feb 20, 2020
               </time>
-              <Badge>GraphQL Asia 2020</Badge>
-            </TalkCardContent>
-          </Card>
+                <Badge>GraphQL Asia 2020</Badge>
+              </TalkCardContent>
+            </Card>
+          </Link>
 
-          <Card title="Building a secure BFF" color="indigo">
-            <TalkCardContent>
-              <time dateTime="2020-11-18">
-                <Icon name="calendar" />
-                Nov 18, 2020
+          <Link to="/talks#secure-bff">
+            <Card title="Building a secure Backend For Frontend" color="indigo">
+              <TalkCardContent>
+                <time dateTime="2020-11-18">
+                  <Icon name="calendar" />
+                Oct 26, 2018
               </time>
-              <Badge>JSFoo 2018</Badge>
-            </TalkCardContent>
-          </Card>
+                <Badge>JSFoo 2018</Badge>
+              </TalkCardContent>
+            </Card>
+          </Link>
 
-          <Card title="React Internals" color="indigo">
-            <TalkCardContent>
-              <time dateTime="2020-11-18">
-                <Icon name="calendar" />
-                Nov 18, 2020
+          <Link to="/talks#react-internals">
+            <Card title="React Internals" color="indigo">
+              <TalkCardContent>
+                <time dateTime="2020-11-18">
+                  <Icon name="calendar" />
+                Aug 18, 2018
               </time>
-              <Badge>ReactFoo 2018</Badge>
-            </TalkCardContent>
-          </Card>
-        </SuggestedTalks> */}
-        <ComingSoon>Coming Soon</ComingSoon>
+                <Badge>ReactFoo 2018</Badge>
+              </TalkCardContent>
+            </Card>
+          </Link>
+        </SuggestedTalks>
       </SectionRight>
       <PrevSection id="blog" />
       <NextSection id="comics" label="Comics" />
