@@ -31,7 +31,7 @@ const Seo = ({ description, lang, meta, title }) => {
   const defaultTitle = site.siteMetadata?.title;
   const googleVerificationMeta = {
     name: "google-site-verification",
-    content: "mLlsWaXMIt7gzr53ama2mqXJcI3u8Kw",
+    content: "mLlsWaXMIt7gzr53ama2mqXJcI3u8Kw-oMVkGja_Zw8",
   };
 
   return (
