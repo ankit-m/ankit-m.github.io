@@ -1,7 +1,7 @@
-import React from "react"
-import ComingSoon from "../components/ComingSoon"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import React from "react";
+import ComingSoon from "../components/ComingSoon";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 export default function Consulting({ location }) {
   return (
@@ -9,5 +9,5 @@ export default function Consulting({ location }) {
       <Seo title="Consulting" />
       <ComingSoon />
     </Layout>
-  )
+  );
 }

@@ -73,24 +73,24 @@ pm.test(“PageSpeed score should be within 90 and 100”, function () {
 
 ```js
 pm.test("Status code is 200", function () {
-  pm.response.to.have.status(200)
-})
+  pm.response.to.have.status(200);
+});
 ```
 
 - **Page structure**: You can evaluate the response markup for sanity checks using cheerio library. These can check for presence of necessary tags and critical elements.
 
 ```js
-var cheerio = require("cheerio")
-var $ = cheerio.load(pm.response.text())
+var cheerio = require("cheerio");
+var $ = cheerio.load(pm.response.text());
 
 pm.test("Page title should be set", function () {
-  pm.expect($("title").text()).to.equal("Ankit Muchhala")
-})
+  pm.expect($("title").text()).to.equal("Ankit Muchhala");
+});
 
 pm.test("Page should have header and footer tags", function () {
-  pm.expect($("header")).to.exist
-  pm.expect($("footer")).to.exist
-})
+  pm.expect($("header")).to.exist;
+  pm.expect($("footer")).to.exist;
+});
 ```
 
 - **Headers**: Basic tests can be written for response headers which determine the functionality of the webpage — `Content-Type`, `Set-Cookie`, etc.
@@ -99,15 +99,15 @@ pm.test("Page should have header and footer tags", function () {
 
 ```js
 pm.test("Manifest file should exist", function () {
-  pm.response.to.have.header("Content-Type", "application/json")
-})
+  pm.response.to.have.header("Content-Type", "application/json");
+});
 
 // Add more tests to check manifest file
 pm.test("Manifest should have valid fields", function () {
-  var jsonData = pm.response.json()
+  var jsonData = pm.response.json();
 
-  pm.expect(jsonData.name).to.equal("Ankit Muchhala")
-})
+  pm.expect(jsonData.name).to.equal("Ankit Muchhala");
+});
 ```
 
 - **Service worker**: If you have a service worker file, you can check for its existence and content.
@@ -116,8 +116,8 @@ pm.test("Manifest should have valid fields", function () {
 pm.test("Service worker file should exist", function () {
   pm.expect(pm.response.headers.get("Content-Type").split(";")).to.include(
     "application/javascript"
-  )
-})
+  );
+});
 ```
 
 ## 3. Security
@@ -126,22 +126,22 @@ pm.test("Service worker file should exist", function () {
 
 ```js
 pm.test("Response should have status code is 301", function () {
-  pm.response.to.have.status(301)
-})
+  pm.response.to.have.status(301);
+});
 
 pm.test("Response should redirect to secure URL", function () {
   pm.response.to.have.header(
     "Location",
     "https://" + pm.environment.get("host") + "/"
-  )
-})
+  );
+});
 
 pm.test("Strict-Transport-Security header should be set", function () {
   pm.response.to.have.header(
     "Strict-Transport-Security",
     "max-age=300; includeSubDomains"
-  )
-})
+  );
+});
 ```
 
 - **Headers**: There are security headers which you can utilize to achieve certain security benefits. Ex. `X-XSS-Protection`, `X-Frame-Options`, etc. You can find a complete list here and add tests for the ones you are using.
@@ -149,29 +149,29 @@ pm.test("Strict-Transport-Security header should be set", function () {
 - **No referrer**: You can also run some sanity tests on the HTML to check for common security issues — using `eval`, unnecessary `iframes` or inline JavaScript. One such test is to verify that all `a` tags with `target="_blank"` (i.e. links which open in a new tab/window) have `rel="noopener noreferrer"`. This means that the newly opened tab will not have access your webpage via `document.referrer`.
 
 ```js
-var cheerio = require("cheerio")
-var $ = cheerio.load(pm.response.text())
+var cheerio = require("cheerio");
+var $ = cheerio.load(pm.response.text());
 
 pm.test("All external ... valid attributed", function () {
   $("a").each(function (i, elem) {
     if ($(elem).attr("target") !== "_blank") {
-      return
+      return;
     }
 
     pm.expect($(elem).attr("rel")).to.equal(
       "noopener noreferrer",
       $(elem).attr("href")
-    )
-  })
-})
+    );
+  });
+});
 ```
 
 - **Robots.txt**: This file resides at the root level `/robots.txt` and specifies how web crawlers (like Google’s bot) should interact with your webpages. Even though it does not **enforce** anything — evil bots might simply ignore — it is a good practice to have a `robots.txt` file which clearly denotes which routes are allowed to be crawled.
 
 ```js
 pm.test("robots.txt file should exist", function () {
-  pm.response.to.have.header("Content-Type", "text/plain")
-})
+  pm.response.to.have.header("Content-Type", "text/plain");
+});
 
 // add specific tests for your robots.txt file
 ```
@@ -183,30 +183,30 @@ These tests verify that your webpage is serving data from verified sources and l
 - **Link validity**: Often you want to verify that all links in your page are valid and that they don’t lead the user to a webpage which is unavailable. The following script finds all the links in your webpage and checks if they exist (i.e. making a `GET` request returns a `200` status code). We make use of the **pm.sendRequest** method here.
 
 ```js
-var cheerio = require("cheerio")
-var $ = cheerio.load(pm.response.text())
+var cheerio = require("cheerio");
+var $ = cheerio.load(pm.response.text());
 
 pm.test("All links on the page should be valid", function () {
   $("a").each(function (i, elem) {
-    var originalPath = $(elem).attr("href")
-    var path = originalPath
+    var originalPath = $(elem).attr("href");
+    var path = originalPath;
 
     if (path && path[0] === "/") {
-      path = pm.environment.get("url") + path
+      path = pm.environment.get("url") + path;
     }
 
     pm.sendRequest(path, function (err, res) {
       pm.test(
         'Link with href "' + originalPath + '" should be valid',
         function () {
-          pm.expect(err).to.equal(null)
-          pm.expect(res).to.have.property("code", 200)
-          pm.expect(res).to.have.property("status", "OK")
+          pm.expect(err).to.equal(null);
+          pm.expect(res).to.have.property("code", 200);
+          pm.expect(res).to.have.property("status", "OK");
         }
-      )
-    })
-  })
-})
+      );
+    });
+  });
+});
 ```
 
 - **CSP**: Content Security Policy headers specify a list of valid sources for different types of content which the browser can execute. For example, you can say — allow JavaScript to be loaded from the current domain (`self`) and `getpostman.com`. The browser will block other sources from executing content. This helps safeguard your application in case someone has injected malicious code into it. **Note: CSP checks are browser dependent and should not be used as a sole line of defence.**

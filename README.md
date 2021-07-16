@@ -1,4 +1,3 @@
-Ankit Muchhala
-==============
+# Ankit Muchhala
 
 This is my website. 🎉

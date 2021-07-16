@@ -1,10 +1,10 @@
-import React, { Fragment } from "react"
-import Header from "./Header"
-import Main from "./Main"
-import GlobalStyle from "./GlobalStyles"
+import React, { Fragment } from "react";
+import Header from "./Header";
+import Main from "./Main";
+import GlobalStyle from "./GlobalStyles";
 
 const Layout = ({ active, children, location }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
+  const rootPath = `${__PATH_PREFIX__}/`;
 
   return (
     <Fragment>
@@ -14,7 +14,7 @@ const Layout = ({ active, children, location }) => {
         {children}
       </Main>
     </Fragment>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

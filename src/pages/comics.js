@@ -1,7 +1,7 @@
-import React from "react"
-import ComingSoon from "../components/ComingSoon"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import React from "react";
+import ComingSoon from "../components/ComingSoon";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 export default function Comics({ location }) {
   return (
@@ -9,5 +9,5 @@ export default function Comics({ location }) {
       <Seo title="Comics" />
       <ComingSoon />
     </Layout>
-  )
+  );
 }

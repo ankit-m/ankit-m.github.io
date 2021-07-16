@@ -101,7 +101,7 @@ function TriggerRenderer(props) {
     <button className="trigger-renderer" disabled={props.disabled}>
       {props.label}
     </button>
-  )
+  );
 }
 
 /**
@@ -109,13 +109,13 @@ function TriggerRenderer(props) {
  * all the handlers
  */
 function Trigger(props) {
-  const Renderer = props.renderer || TriggerRenderer
+  const Renderer = props.renderer || TriggerRenderer;
 
   return (
     <div ref={props.triggerRef} role="button" onClick={props.onClick}>
       <Renderer disabled={props.disabled} label={props.label} />
     </div>
-  )
+  );
 }
 
 /**
@@ -123,9 +123,9 @@ function Trigger(props) {
  * the complete component
  */
 function Parent(props) {
-  const TriggerElement = props.triggerComponent || Trigger
+  const TriggerElement = props.triggerComponent || Trigger;
 
-  return <TriggerElement {...props} renderer={props.triggerRenderer} />
+  return <TriggerElement {...props} renderer={props.triggerRenderer} />;
 }
 ```
 

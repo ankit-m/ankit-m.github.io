@@ -1,17 +1,17 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 import { Link } from "gatsby";
 
-import Badge from "../Badge"
-import Card from "../Card"
-import Icon from "../Icon"
+import Badge from "../Badge";
+import Card from "../Card";
+import Icon from "../Icon";
 
 import Section, {
   NextSection,
   PrevSection,
   SectionLeft,
   SectionRight,
-} from "./Section"
+} from "./Section";
 
 function TalkingFigure(props) {
   return (
@@ -86,7 +86,7 @@ function TalkingFigure(props) {
         </g>
       </g>
     </svg>
-  )
+  );
 }
 
 const TalkCardContent = styled.div`
@@ -96,13 +96,13 @@ const TalkCardContent = styled.div`
   time {
     margin-right: 8px;
   }
-`
+`;
 
 const SuggestedTalks = styled.div`
   .card {
     margin-top: 16px;
   }
-`
+`;
 
 export default function BlogSection() {
   return (
@@ -122,8 +122,8 @@ export default function BlogSection() {
               <TalkCardContent>
                 <time dateTime="2020-11-18">
                   <Icon name="calendar" />
-                Feb 20, 2020
-              </time>
+                  Feb 20, 2020
+                </time>
                 <Badge>GraphQL Asia 2020</Badge>
               </TalkCardContent>
             </Card>
@@ -134,8 +134,8 @@ export default function BlogSection() {
               <TalkCardContent>
                 <time dateTime="2020-11-18">
                   <Icon name="calendar" />
-                Oct 26, 2018
-              </time>
+                  Oct 26, 2018
+                </time>
                 <Badge>JSFoo 2018</Badge>
               </TalkCardContent>
             </Card>
@@ -146,8 +146,8 @@ export default function BlogSection() {
               <TalkCardContent>
                 <time dateTime="2020-11-18">
                   <Icon name="calendar" />
-                Aug 18, 2018
-              </time>
+                  Aug 18, 2018
+                </time>
                 <Badge>ReactFoo 2018</Badge>
               </TalkCardContent>
             </Card>
@@ -157,5 +157,5 @@ export default function BlogSection() {
       <PrevSection id="blog" />
       <NextSection id="comics" label="Comics" />
     </Section>
-  )
+  );
 }

@@ -1,13 +1,13 @@
-import React from "react"
-import styled from "styled-components"
-import Badge from "../Badge"
+import React from "react";
+import styled from "styled-components";
+import Badge from "../Badge";
 
 import Section, {
   NextSection,
   PrevSection,
   SectionLeft,
   SectionRight,
-} from "./Section"
+} from "./Section";
 
 function DrawingFigure(props) {
   return (
@@ -64,7 +64,7 @@ function DrawingFigure(props) {
         />
       </g>
     </svg>
-  )
+  );
 }
 
 const ComingSoon = styled(Badge)`
@@ -72,7 +72,7 @@ const ComingSoon = styled(Badge)`
   line-height: 1.5em;
   height: auto;
   margin-top: 2em;
-`
+`;
 
 export default function ComicSection() {
   return (
@@ -91,5 +91,5 @@ export default function ComicSection() {
       <PrevSection id="talks" />
       <NextSection id="food" label="Food" />
     </Section>
-  )
+  );
 }

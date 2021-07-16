@@ -83,13 +83,13 @@ Now add the following two scripts to your package.json . The test script tells m
 Finally, let’s add a sample test to check if everything is working as expected. Add the following code to `sample.spec.js `.
 
 ```js
-const { expect } = require("chai")
+const { expect } = require("chai");
 
 describe("sample test", function () {
   it("should work", function () {
-    expect(true).to.be.true
-  })
-})
+    expect(true).to.be.true;
+  });
+});
 ```
 
 Now run `npm test` and you should see an output like this -
@@ -104,31 +104,31 @@ sample test
 We want to start one instance of the browser (headless Chrome in this case) and reuse the same instance to run all our tests. Each test will open a new tab, browse to the URL, run tests against the view and then close the tab. We will do all the setup in `test/bootstrap.js` and expose required variables to be used across tests.
 
 ```js
-const puppeteer = require("puppeteer")
-const { expect } = require("chai")
-const _ = require("lodash")
-const globalVariables = _.pick(global, ["browser", "expect"])
+const puppeteer = require("puppeteer");
+const { expect } = require("chai");
+const _ = require("lodash");
+const globalVariables = _.pick(global, ["browser", "expect"]);
 
 // puppeteer options
 const opts = {
   headless: false,
   slowMo: 100,
   timeout: 10000,
-}
+};
 
 // expose variables
 before(async function () {
-  global.expect = expect
-  global.browser = await puppeteer.launch(opts)
-})
+  global.expect = expect;
+  global.browser = await puppeteer.launch(opts);
+});
 
 // close browser and reset global variables
 after(function () {
-  browser.close()
+  browser.close();
 
-  global.browser = globalVariables.browser
-  global.expect = globalVariables.expect
-})
+  global.browser = globalVariables.browser;
+  global.expect = globalVariables.expect;
+});
 ```
 
 The `before` block is responsible to setup everything required for all the tests. It will execute once before all tests. It exposes the `browser` instance and `expect` function so that we don’t have to require it in all the test files. The `after` block cleans up the environment, once all tests are completed. I have also used [Lodash](https://lodash.com/) for some convenience methods.
@@ -154,13 +154,12 @@ We will now update `test/sample.spec.js`. To do something with this browser inst
 // test/sample.spec.js
 describe("sample test", function () {
   it("should work", async function () {
-    console.log(await browser.version())
+    console.log(await browser.version());
 
-    expect(true).to.be.true
-  })
-})
+    expect(true).to.be.true;
+  });
+});
 ```
-
 
 Now, when you run `npm test`. You should see the Chrome version logged. The version might differ for you as puppeteer installs the latest version of Chromium available.
 
@@ -180,47 +179,47 @@ For many reasons you might not prefer to use async/await syntax. You can achieve
 describe("sample test", function () {
   it("should work", function (done) {
     browser.version().then(function (v) {
-      console.log(v)
+      console.log(v);
 
-      expect(true).to.be.true
-      done()
-    })
-  })
-})
+      expect(true).to.be.true;
+      done();
+    });
+  });
+});
 ```
 
 ```js
 // test/bootstrap.js
 
-const puppeteer = require("puppeteer")
-const { expect } = require("chai")
-const _ = require("lodash")
-const globalVariables = _.pick(global, ["browser", "expect"])
+const puppeteer = require("puppeteer");
+const { expect } = require("chai");
+const _ = require("lodash");
+const globalVariables = _.pick(global, ["browser", "expect"]);
 
 // puppeteer options
 const opts = {
   headless: false,
   slowMo: 100,
   timeout: 10000,
-}
+};
 
 // expose variables
 before(function (done) {
-  global.expect = expect
+  global.expect = expect;
 
   puppeteer.launch(opts).then(function (browser) {
-    global.browser = browser
-    done()
-  })
-})
+    global.browser = browser;
+    done();
+  });
+});
 
 // close browser and reset global variables
 after(function () {
-  browser.close()
+  browser.close();
 
-  global.browser = globalVariables.browser
-  global.expect = globalVariables.expect
-})
+  global.browser = globalVariables.browser;
+  global.expect = globalVariables.expect;
+});
 ```
 
 I prefer using `async/await` as it looks cleaner and is much more readable, especially for more complex tests.
@@ -245,39 +244,39 @@ Puppeteer has a lot of classes like Page, Frame, Request, etc. Each of these cla
 // test/sample.spec.js
 
 describe("sample test", function () {
-  let page
+  let page;
 
   before(async function () {
-    page = await browser.newPage()
-    await page.goto("http://localhost:8080")
-  })
+    page = await browser.newPage();
+    await page.goto("http://localhost:8080");
+  });
 
   after(async function () {
-    await page.close()
-  })
+    await page.close();
+  });
 
   it("should have the correct page title", async function () {
-    expect(await page.title()).to.eql("Puppeteer Mocha")
-  })
+    expect(await page.title()).to.eql("Puppeteer Mocha");
+  });
 
   it("should have a heading", async function () {
-    const HEADING_SELECTOR = "h1"
-    let heading
+    const HEADING_SELECTOR = "h1";
+    let heading;
 
-    await page.waitFor(HEADING_SELECTOR)
-    heading = await page.$eval(HEADING_SELECTOR, heading => heading.innerText)
+    await page.waitFor(HEADING_SELECTOR);
+    heading = await page.$eval(HEADING_SELECTOR, heading => heading.innerText);
 
-    expect(heading).to.eql("Page Title")
-  })
+    expect(heading).to.eql("Page Title");
+  });
 
   it("should have a single content section", async function () {
-    const BODY_SELECTOR = ".main-content"
+    const BODY_SELECTOR = ".main-content";
 
-    await page.waitFor(BODY_SELECTOR)
+    await page.waitFor(BODY_SELECTOR);
 
-    expect(await page.$$(BODY_SELECTOR)).to.have.lengthOf(1)
-  })
-})
+    expect(await page.$$(BODY_SELECTOR)).to.have.lengthOf(1);
+  });
+});
 ```
 
 There is a lot going on in this spec file. Let’s look at it one by one.

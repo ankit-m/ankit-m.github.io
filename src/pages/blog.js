@@ -1,9 +1,9 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import styled from "styled-components"
+import React from "react";
+import { Link, graphql } from "gatsby";
+import styled from "styled-components";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const BlogListContainer = styled.article`
   padding: var(--spacing-4) 0;
@@ -34,10 +34,10 @@ const BlogListContainer = styled.article`
     margin-left: var(--spacing-2);
     border-left: 1px solid var(--gray-400);
   }
-`
+`;
 
 export default function BlogIndex({ data, location }) {
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMarkdownRemark.edges;
 
   return (
     <Layout location={location} active="blog">
@@ -46,7 +46,7 @@ export default function BlogIndex({ data, location }) {
       <h1 className="accent-font">Blog</h1>
 
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
+        const title = node.frontmatter.title || node.fields.slug;
 
         return (
           <BlogListContainer key={node.fields.slug}>
@@ -63,10 +63,10 @@ export default function BlogIndex({ data, location }) {
               <span className="time-to-read">{node.timeToRead} min read</span>
             </small>
           </BlogListContainer>
-        )
+        );
       })}
     </Layout>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -93,4 +93,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

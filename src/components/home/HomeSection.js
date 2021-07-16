@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import { StaticImage } from "gatsby-plugin-image"
+import React from "react";
+import styled from "styled-components";
+import { StaticImage } from "gatsby-plugin-image";
 
-import Section, { NextSection, SectionLeft, SectionRight } from "./Section"
+import Section, { NextSection, SectionLeft, SectionRight } from "./Section";
 
 function WavingFigure(props) {
   return (
@@ -60,7 +60,7 @@ function WavingFigure(props) {
         />
       </g>
     </svg>
-  )
+  );
 }
 
 const SocialLinks = styled.div`
@@ -71,7 +71,7 @@ const SocialLinks = styled.div`
   a {
     margin-right: 1rem;
   }
-`
+`;
 
 export default function HomeSection(props) {
   return (
@@ -83,9 +83,15 @@ export default function HomeSection(props) {
         <p>Hi! I am</p>
         <h1 className="text-pink accent-font">Ankit Muchhala</h1>
         <p>
-          I build web products. Currently, helping{' '}
-          <a href="https://postman.com" target="_blank" rel="noopener noreferrer">Postman</a> create an API
-          platform for over 15M users. Reach out to me via -
+          I build web products. Currently, helping{" "}
+          <a
+            href="https://postman.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Postman
+          </a>{" "}
+          create an API platform for over 15M users. Reach out to me via -
         </p>
         <SocialLinks>
           <a
@@ -137,5 +143,5 @@ export default function HomeSection(props) {
       </SectionRight>
       <NextSection id="blog" label="Blog" />
     </Section>
-  )
+  );
 }

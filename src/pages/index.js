@@ -1,14 +1,14 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
 
-import HomeSection from "../components/home/HomeSection"
-import BlogSection from "../components/home/BlogSection"
-import TalkSection from "../components/home/TalkSection"
-import Layout from "../components/layout"
-import ComicSection from "../components/home/ComicSection"
-import FoodSection from "../components/home/FoodSection"
-import ConsultingSection from "../components/home/ConsultingSection"
-import Seo from "../components/seo"
+import HomeSection from "../components/home/HomeSection";
+import BlogSection from "../components/home/BlogSection";
+import TalkSection from "../components/home/TalkSection";
+import Layout from "../components/layout";
+import ComicSection from "../components/home/ComicSection";
+import FoodSection from "../components/home/FoodSection";
+import ConsultingSection from "../components/home/ConsultingSection";
+import Seo from "../components/seo";
 
 const BlogIndex = ({ data, location }) => {
   const blogs = data.allMarkdownRemark.edges.map(d => ({
@@ -16,7 +16,7 @@ const BlogIndex = ({ data, location }) => {
     title: d.node.frontmatter.title,
     date: d.node.frontmatter.date,
     slug: d.node.fields.slug,
-  }))
+  }));
 
   return (
     <Layout active="home" location={location}>
@@ -28,10 +28,10 @@ const BlogIndex = ({ data, location }) => {
       <FoodSection />
       <ConsultingSection />
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogIndex
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query {
@@ -58,4 +58,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

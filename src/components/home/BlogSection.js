@@ -1,15 +1,15 @@
-import { Link } from "gatsby"
-import React from "react"
-import styled from "styled-components"
-import Card from "../Card"
-import Icon from "../Icon"
+import { Link } from "gatsby";
+import React from "react";
+import styled from "styled-components";
+import Card from "../Card";
+import Icon from "../Icon";
 
 import Section, {
   NextSection,
   SectionLeft,
   SectionRight,
   PrevSection,
-} from "./Section"
+} from "./Section";
 
 const ViewAllLink = styled(Link)`
   margin: 32px 0 16px 0;
@@ -21,7 +21,7 @@ const ViewAllLink = styled(Link)`
   &:hover {
     color: var(--purple-dark);
   }
-`
+`;
 
 function TypingFigure(props) {
   return (
@@ -65,7 +65,7 @@ function TypingFigure(props) {
         </g>
       </g>
     </svg>
-  )
+  );
 }
 
 const BlogCardContent = styled.div`
@@ -75,13 +75,13 @@ const BlogCardContent = styled.div`
   time {
     margin-right: 8px;
   }
-`
+`;
 
 const SuggestedBlogs = styled.div`
   .card {
     margin-top: 16px;
   }
-`
+`;
 
 export default function BlogSection(props) {
   return (
@@ -115,5 +115,5 @@ export default function BlogSection(props) {
       <PrevSection id="" />
       <NextSection id="talks" label="Talks" />
     </Section>
-  )
+  );
 }

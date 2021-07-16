@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
-import React from "react"
-import styled from "styled-components"
+import { Link } from "gatsby";
+import React from "react";
+import styled from "styled-components";
 
 const ComingSoonWrapper = styled.div`
   max-width: 320px;
@@ -15,7 +15,7 @@ const ComingSoonWrapper = styled.div`
   p {
     line-height: 1.5rem;
   }
-`
+`;
 
 export default function ComingSoon() {
   return (
@@ -29,5 +29,5 @@ export default function ComingSoon() {
         Go home
       </Link>
     </ComingSoonWrapper>
-  )
+  );
 }

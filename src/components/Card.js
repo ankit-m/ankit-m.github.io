@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 
 const CardWrapper = styled.div`
   border-radius: 8px;
@@ -38,7 +38,7 @@ const CardWrapper = styled.div`
       margin-right: 4px;
     }
   }
-`
+`;
 
 export default function Card(props) {
   return (
@@ -46,5 +46,5 @@ export default function Card(props) {
       <h4>{props.title}</h4>
       {props.children}
     </CardWrapper>
-  )
+  );
 }

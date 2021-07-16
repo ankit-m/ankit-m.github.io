@@ -1,16 +1,16 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import styled from "styled-components"
+import React from "react";
+import { Link, graphql } from "gatsby";
+import styled from "styled-components";
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from "../components/bio";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const BlogPostWrapper = styled.article`
   .publish-date {
     margin-bottom: 0;
   }
-`
+`;
 
 const MarkdownWrapper = styled.section`
   color: var(--gray-900);
@@ -85,7 +85,7 @@ const MarkdownWrapper = styled.section`
     margin-top: var(--spacing-6);
     margin-bottom: var(--spacing-3);
   }
-`
+`;
 
 const BottomNavigationWrapper = styled.nav`
   display: flex;
@@ -101,12 +101,12 @@ const BottomNavigationWrapper = styled.nav`
 
     margin-bottom: 16px;
   }
-`
+`;
 
 const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
+  const post = data.markdownRemark;
+  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const { previous, next } = data;
 
   return (
     <Layout location={location} title={siteTitle} active="blog">
@@ -144,10 +144,10 @@ const BlogPostTemplate = ({ data, location }) => {
         )}
       </BottomNavigationWrapper>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
@@ -187,4 +187,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

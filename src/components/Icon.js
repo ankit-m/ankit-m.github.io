@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 
 const iconMap = {
   "arrow-circle-down": (
@@ -47,7 +47,7 @@ const iconMap = {
       />
     </svg>
   ),
-}
+};
 const IconWrapper = styled.div`
   display: inline-flex;
   align-items: center;
@@ -58,12 +58,12 @@ const IconWrapper = styled.div`
     height: ${props => props.height || "16px"};
     width: ${props => props.width || "16px"};
   }
-`
+`;
 
 export default function Icon(props) {
   return (
     <IconWrapper className={`icon ${props.className || ""}`} {...props}>
       {iconMap[props.name]}
     </IconWrapper>
-  )
+  );
 }

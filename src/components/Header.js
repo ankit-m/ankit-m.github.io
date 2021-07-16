@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
-import { StaticImage } from "gatsby-plugin-image"
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
+import { StaticImage } from "gatsby-plugin-image";
 
 const navItems = [
   {
@@ -41,7 +41,7 @@ const navItems = [
     path: "/consulting",
     className: "text-green",
   },
-]
+];
 
 const HeaderWrapper = styled.header`
   height: 64px;
@@ -108,7 +108,7 @@ const HeaderWrapper = styled.header`
       display: block;
     }
   }
-`
+`;
 
 export default function Header(props) {
   return (
@@ -140,5 +140,5 @@ export default function Header(props) {
         ))}
       </nav>
     </HeaderWrapper>
-  )
+  );
 }

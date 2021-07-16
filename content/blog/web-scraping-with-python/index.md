@@ -4,7 +4,7 @@ date: "2015-07-20"
 description: Scraping the web using python is very easy. There are a lot of libraries available which bootstrap a lot of things for you. This post  uses requests and BeautifulSoup to scrape a university email client (POP is disabled).
 ---
 
-Scraping the web using python is very easy. There are a lot of libraries available which bootstrap a lot of things for you. This post ``requests`` and ``BeautifulSoup`` to scrape a university email client (POP is disabled).
+Scraping the web using python is very easy. There are a lot of libraries available which bootstrap a lot of things for you. This post `requests` and `BeautifulSoup` to scrape a university email client (POP is disabled).
 
 ### Basics
 
@@ -20,44 +20,43 @@ For our use we just need to know that server responds to a request with data, if
 
 ### Authentication
 
-The idea was to scrape university email client and obtain all the email. It is simply one GET request to obtain the login page. Login to any server is usually a  POST request with your login credentials. In python, you can use ``requests`` library to do this.
+The idea was to scrape university email client and obtain all the email. It is simply one GET request to obtain the login page. Login to any server is usually a POST request with your login credentials. In python, you can use `requests` library to do this.
 
-``getLoginScreen = requests.get('https://webmail.daiict.ac.in')``
+`getLoginScreen = requests.get('https://webmail.daiict.ac.in')`
 
-``loginRequest = requests.post('https://webmail.daiict.ac.in/zimbra/', data={'loginOp':'login','username': username,'password':password, 'client': 'preferred'})``
+`loginRequest = requests.post('https://webmail.daiict.ac.in/zimbra/', data={'loginOp':'login','username': username,'password':password, 'client': 'preferred'})`
 
 #### Cookies
 
 Many login mechanism use cookies or sessions to authenticate users for a particular period of time. To incorporate this, you would have to set headers and send the cookie data as well. This is where requests library comes to your rescue. It has pre-built sessions which saves you the time of sending cookie data. All you have to do is to create a session and use it to login.
 
-``session = requests.Session()``
+`session = requests.Session()`
 
-``getLoginScreen = session.get ..``
+`getLoginScreen = session.get ..`
 
-``loginRequest = session.post( ..``
+`loginRequest = session.post( ..`
 
 Now the inbox is one GET request away.
 
-``inbox = session.get('https://webmail.daiict.ac.in/zimbra/h/search?mesg=welcome&initial=true&app=')``
+`inbox = session.get('https://webmail.daiict.ac.in/zimbra/h/search?mesg=welcome&initial=true&app=')`
 
-The ``inbox`` variable has the HTML of your inbox. We need to process it to get useful information. We use ``BeautifulSoup`` for this.
+The `inbox` variable has the HTML of your inbox. We need to process it to get useful information. We use `BeautifulSoup` for this.
 
 ### BeautifulSoup
 
 BeautifulSoup library is beautiful. It takes in HTML code and parses it into python datastructures. Let's not worry about how BeautifulSoup implements it.
 
-``from bs4 import BeautifulSoup``
+`from bs4 import BeautifulSoup`
 
-``soup = BeautifulSoup(inbox.text, 'html.parser')``
+`soup = BeautifulSoup(inbox.text, 'html.parser')`
 
-You can do a lot things with the variable ``soup`` - find element by id, prettify, sibling, parent and so on. The functions on ``soup`` allow you to navigate through the DOM tree. Go through the documentation to know more about these functions.
+You can do a lot things with the variable `soup` - find element by id, prettify, sibling, parent and so on. The functions on `soup` allow you to navigate through the DOM tree. Go through the documentation to know more about these functions.
 
-Note: While printing from python, you may encounter encoding error. You just have to encode the text into utf-8 before printing. Use ``string.encode('utf-8')``.
+Note: While printing from python, you may encounter encoding error. You just have to encode the text into utf-8 before printing. Use `string.encode('utf-8')`.
 
 ### Using Regex to find useful information
 
-After you got the information you need from BeautifulSoup, how do find the data you need? Use regular expressions (Regex). The python library is ``re``.
-
+After you got the information you need from BeautifulSoup, how do find the data you need? Use regular expressions (Regex). The python library is `re`.
 
     for i in titles:
         title = re.sub('[\W_]+', '', i)
@@ -66,8 +65,8 @@ After you got the information you need from BeautifulSoup, how do find the data 
 
 The above snippet, navigates thorugh the titles of all emails.
 
-``title = re.sub('[\W_]+', '', i)`` removes all non-alphanumeric characters and whitespaces from the titles.
+`title = re.sub('[\W_]+', '', i)` removes all non-alphanumeric characters and whitespaces from the titles.
 
-The script I wrote was for the college magazine editors, who had to navigate through all the emails to find a new article submitted  to their respective section. So all I had to do was to find their section in the title string. If it is there, then prompt.
+The script I wrote was for the college magazine editors, who had to navigate through all the emails to find a new article submitted to their respective section. So all I had to do was to find their section in the title string. If it is there, then prompt.
 
 You can find the source code here:

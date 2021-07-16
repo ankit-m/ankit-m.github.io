@@ -54,9 +54,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [
-          "G-6SG591W98G"
-        ]
+        trackingIds: ["G-6SG591W98G"],
       },
     },
     {
@@ -84,8 +82,8 @@ module.exports = {
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
+                });
+              });
             },
             query: `
               {
@@ -141,4 +139,4 @@ module.exports = {
     //   }
     // }
   ],
-}
+};
