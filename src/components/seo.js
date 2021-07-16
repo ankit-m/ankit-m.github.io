@@ -25,10 +25,14 @@ const Seo = ({ description, lang, meta, title }) => {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const metaDescription = description || site.siteMetadata.description;
+  const defaultTitle = site.siteMetadata?.title;
+  const googleVerificationMeta = {
+    name: "google-site-verification",
+    content: "mLlsWaXMIt7gzr53ama2mqXJcI3u8Kw"
+  };
 
   return (
     <Helmet
@@ -70,6 +74,7 @@ const Seo = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        googleVerificationMeta
       ].concat(meta)}
     />
   )
