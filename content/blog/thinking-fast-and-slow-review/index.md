@@ -2,7 +2,10 @@
 title: Thinking, Fast and Slow - Book Review
 date: "2020-10-18"
 description: Daniel Kahneman writes the book with a simple goal - Enable the reader to have smarter water cooler conversations. Drawing on his research, spanning decades, he presents an introduction to cognitive psychology and how it applies to a variety of scenarios - from day-to-day life to economic theory.
+image: './thinking-fast-and-slow-book.webp'
 ---
+
+![](./thinking-fast-and-slow-book.webp)
 
 Daniel Kahneman writes the book with a simple goal - _Enable the reader to have smarter water cooler conversations_. Drawing on his research, spanning decades, he presents an introduction to cognitive psychology and how it applies to a variety of scenarios - from day-to-day life to economic theory.
 
