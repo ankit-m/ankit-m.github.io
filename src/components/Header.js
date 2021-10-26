@@ -23,18 +23,18 @@ const navItems = [
 
     className: "text-indigo",
   },
-  {
-    label: "Comics",
-    key: "comics",
-    path: "/comics",
-    className: "text-blue",
-  },
-  {
-    label: "Food",
-    key: "food",
-    path: "/food",
-    className: "text-teal",
-  },
+  // {
+  //   label: "Comics",
+  //   key: "comics",
+  //   path: "/comics",
+  //   className: "text-blue",
+  // },
+  // {
+  //   label: "Food",
+  //   key: "food",
+  //   path: "/food",
+  //   className: "text-teal",
+  // },
   {
     label: "Consulting",
     key: "consulting",
