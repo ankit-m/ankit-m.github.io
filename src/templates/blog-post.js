@@ -107,13 +107,16 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;
+  const pageImage = post.frontmatter.image &&
+    post.frontmatter.image.publicURL &&
+    `${data.site.siteMetadata.siteUrl}${post.frontmatter.image.publicURL}`;
 
   return (
     <Layout location={location} title={siteTitle} active="blog">
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
-        image={post.frontmatter.image}
+        image={pageImage}
       />
       <BlogPostWrapper
         className="blog-post"
@@ -159,6 +162,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(id: { eq: $id }) {

@@ -38,11 +38,11 @@ const Seo = ({ description, lang, meta, title, image }) => {
     : [
       {
         name: 'og:image',
-        content: image.publicURL
+        content: image
       },
       {
         name: 'twitter:image',
-        content: image.publicURL
+        content: image
       }
     ];
 
