@@ -83,10 +83,10 @@ export default function HomeSection(props) {
         <p>Hi! I am</p>
         <h1 className="text-pink accent-font">Ankit Muchhala</h1>
         <p>
-          I build tech products - everything
-          from a small website to an enterprise-grade application.
-          Currently, building large-scale data products for Amazon supply chain.
-          Reach out via -
+          I build tech products - everything from small websites to enterprise-grade SaaS applications.
+          Currently, a Product Manager at Amazon, building planet-scale data products.
+          Previously, a Tech Lead at <a href="https://www.postman.com/" rel="noreferrer noopener" target="_blank">Postman</a>,
+          developing the world's leading API Platform.
         </p>
         <SocialLinks>
           <a
