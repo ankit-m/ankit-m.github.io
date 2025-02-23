@@ -35,12 +35,12 @@ const navItems = [
   //   path: "/food",
   //   className: "text-teal",
   // },
-  {
-    label: "Consulting",
-    key: "consulting",
-    path: "/consulting",
-    className: "text-green",
-  },
+  // {
+  //   label: "Consulting",
+  //   key: "consulting",
+  //   path: "/consulting",
+  //   className: "text-green",
+  // },
 ];
 
 const HeaderWrapper = styled.header`
