@@ -1,7 +1,7 @@
 ---
 title: UI Testing with Postman
 date: "2019-11-01"
-description: Postman is a great tool to build and test APIs. However, it can also be used to test and monitor your websites. Read more to learn how to maintain your web applications.
+description: Learn how to automate website performance, functionality, security, integrity, and accessibility tests using Postman and Newman.
 ---
 
 [Postman](https://www.getpostman.com/) is a tool commonly used to work with APIs. It provides an easy way to make HTTP calls and run scripts during various phases of the request. We can leverage these features for **continuous and automated** UI testing.

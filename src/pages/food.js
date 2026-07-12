@@ -6,7 +6,7 @@ import Seo from "../components/seo";
 export default function Food({ location }) {
   return (
     <Layout location={location} active="food">
-      <Seo title="Food" />
+      <Seo title="Food" pathname="/food/" noIndex />
       <ComingSoon />
     </Layout>
   );

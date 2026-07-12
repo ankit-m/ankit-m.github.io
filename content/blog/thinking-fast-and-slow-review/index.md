@@ -1,11 +1,11 @@
 ---
 title: Thinking, Fast and Slow - Book Review
 date: "2020-10-18"
-description: Daniel Kahneman writes the book with a simple goal - Enable the reader to have smarter water cooler conversations. Drawing on his research, spanning decades, he presents an introduction to cognitive psychology and how it applies to a variety of scenarios - from day-to-day life to economic theory.
+description: A review of Thinking, Fast and Slow, with practical lessons from Daniel Kahneman's research on judgment, cognitive bias, and decision-making.
 image: './thinking-fast-and-slow-book.webp'
 ---
 
-![](./thinking-fast-and-slow-book.webp)
+![Thinking, Fast and Slow by Daniel Kahneman](./thinking-fast-and-slow-book.webp)
 
 Daniel Kahneman writes the book with a simple goal - _Enable the reader to have smarter water cooler conversations_. Drawing on his research, spanning decades, he presents an introduction to cognitive psychology and how it applies to a variety of scenarios - from day-to-day life to economic theory.
 
@@ -33,4 +33,3 @@ The book provides the tools to do so.
 * **Long trades**: Although I am not into stock trading, the book makes a very convincing statistical and psychological argument as to why an investor should look for long-term trades rather than short-term gains. One simple way to start doing this is by checking your investment app less often.
 
 * **Hiring**: Making a conscious attempt to avoid Halo effect and decision bias.
-

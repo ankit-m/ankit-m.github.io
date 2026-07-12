@@ -1,7 +1,7 @@
 ---
 title: Building highly customizable React components
 date: "2018-10-20"
-description: React provides a way to build web applications using components. This blogpost outlines ways to design components for high degree of visual and functional customizability.
+description: Learn practical patterns for building customizable React components with extensible behavior, styling, renderers, props, and accessibility.
 ---
 
 Building a React web application, for the most part, is writing [components](https://reactjs.org/docs/glossary.html#components) which combine to form your user interface. But there are certain components which are reused across your entire application — Button, Link, Dropdown, Tooltip, etc.

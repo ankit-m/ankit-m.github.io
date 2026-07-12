@@ -52,6 +52,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/404`, `/404.html`, `/comics`, `/consulting`, `/food`],
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: ["G-6SG591W98G"],

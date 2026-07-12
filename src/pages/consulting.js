@@ -6,7 +6,7 @@ import Seo from "../components/seo";
 export default function Consulting({ location }) {
   return (
     <Layout location={location} active="consulting">
-      <Seo title="Consulting" />
+      <Seo title="Consulting" pathname="/consulting/" noIndex />
       <ComingSoon />
     </Layout>
   );

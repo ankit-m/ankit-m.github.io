@@ -10,7 +10,17 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-const Seo = ({ description, lang, meta, title, image }) => {
+const Seo = ({
+  description,
+  lang,
+  meta,
+  title,
+  image,
+  pathname,
+  article,
+  datePublished,
+  noIndex,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,6 +28,7 @@ const Seo = ({ description, lang, meta, title, image }) => {
           siteMetadata {
             title
             description
+            siteUrl
             social {
               twitter
             }
@@ -29,6 +40,8 @@ const Seo = ({ description, lang, meta, title, image }) => {
 
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
+  const siteUrl = site.siteMetadata.siteUrl.replace(/\/$/, ``);
+  const canonicalUrl = `${siteUrl}${pathname || `/`}`;
   const googleVerificationMeta = {
     name: "google-site-verification",
     content: "jo-QRBC3HrMVWJ5lMNZ78RcXqticphFNFA24MkTrPRE",
@@ -36,15 +49,27 @@ const Seo = ({ description, lang, meta, title, image }) => {
   const imageMetaAttributes = !image
     ? []
     : [
-      {
-        name: 'og:image',
-        content: image
-      },
-      {
-        name: 'twitter:image',
-        content: image
-      }
-    ];
+        {
+          property: "og:image",
+          content: image,
+        },
+        {
+          name: "twitter:image",
+          content: image,
+        },
+        {
+          property: "og:image:alt",
+          content: title,
+        },
+      ];
+  const articleMetaAttributes = !article
+    ? []
+    : [
+        { property: `article:author`, content: `Ankit Muchhala` },
+        ...(datePublished
+          ? [{ property: `article:published_time`, content: datePublished }]
+          : []),
+      ];
 
   return (
     <Helmet
@@ -53,6 +78,7 @@ const Seo = ({ description, lang, meta, title, image }) => {
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      link={[{ rel: `canonical`, href: canonicalUrl }]}
       meta={[
         {
           name: `description`,
@@ -68,7 +94,11 @@ const Seo = ({ description, lang, meta, title, image }) => {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: article ? `article` : `website`,
+        },
+        {
+          property: `og:url`,
+          content: canonicalUrl,
         },
         {
           name: `twitter:card`,
@@ -87,7 +117,9 @@ const Seo = ({ description, lang, meta, title, image }) => {
           content: metaDescription,
         },
         googleVerificationMeta,
-        ...imageMetaAttributes
+        ...(noIndex ? [{ name: `robots`, content: `noindex, follow` }] : []),
+        ...articleMetaAttributes,
+        ...imageMetaAttributes,
       ].concat(meta)}
     />
   );
@@ -97,6 +129,9 @@ Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  pathname: `/`,
+  article: false,
+  noIndex: false,
 };
 
 Seo.propTypes = {
@@ -104,6 +139,11 @@ Seo.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  pathname: PropTypes.string,
+  article: PropTypes.bool,
+  datePublished: PropTypes.string,
+  noIndex: PropTypes.bool,
+  image: PropTypes.string,
 };
 
 export default Seo;

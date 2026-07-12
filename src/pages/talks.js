@@ -45,7 +45,11 @@ export default function Talks({ location }) {
 
   return (
     <Layout location={location} active="talks">
-      <Seo title="Talks" />
+      <Seo
+        title="Talks"
+        pathname="/talks/"
+        description="Conference talks and presentations by Ankit Muchhala on developer tools, API testing, automation, and software engineering."
+      />
 
       <h1 className="accent-font">Talks</h1>
 

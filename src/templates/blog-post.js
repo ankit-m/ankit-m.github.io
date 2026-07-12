@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
+import { Helmet } from "react-helmet";
 
 import Bio from "../components/bio";
 import Layout from "../components/layout";
@@ -107,17 +108,53 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;
-  const pageImage = post.frontmatter.image &&
+  const pageImage =
+    post.frontmatter.image &&
     post.frontmatter.image.publicURL &&
-    `${data.site.siteMetadata.siteUrl}${post.frontmatter.image.publicURL}`;
+    `${data.site.siteMetadata.siteUrl.replace(/\/$/, ``)}${
+      post.frontmatter.image.publicURL
+    }`;
+  const pathname = `/blog${post.fields.slug}`;
+  const pageUrl = `${data.site.siteMetadata.siteUrl.replace(
+    /\/$/,
+    ``
+  )}${pathname}`;
+  const description = post.frontmatter.description || post.excerpt;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.frontmatter.title,
+    description,
+    datePublished: post.frontmatter.datePublished,
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    author: {
+      "@type": "Person",
+      name: "Ankit Muchhala",
+      url: data.site.siteMetadata.siteUrl,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Ankit Muchhala",
+      url: data.site.siteMetadata.siteUrl,
+    },
+    ...(pageImage ? { image: pageImage } : {}),
+  };
 
   return (
     <Layout location={location} title={siteTitle} active="blog">
       <Seo
         title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        description={description}
         image={pageImage}
+        pathname={pathname}
+        article
+        datePublished={post.frontmatter.datePublished}
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
       <BlogPostWrapper
         className="blog-post"
         itemScope
@@ -167,11 +204,15 @@ export const pageQuery = graphql`
     }
     markdownRemark(id: { eq: $id }) {
       id
+      fields {
+        slug
+      }
       excerpt(pruneLength: 160)
       html
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        datePublished: date(formatString: "YYYY-MM-DD")
         description
         image {
           publicURL

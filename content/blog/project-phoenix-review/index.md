@@ -1,7 +1,7 @@
 ---
 title: The Project Phoenix - Book Review
 date: "2020-09-20"
-description: I never thought that I won’t be able to put down a book related to DevOps and it will end up being one of the most riveting stories I’ve ever read. Alas! I was wrong.
+description: A review of The Phoenix Project and its practical lessons about DevOps, systems thinking, feedback loops, teamwork, and trust.
 ---
 
 I never thought that I won’t be able to put down a book related to DevOps and it will end up being one of the most riveting stories I’ve ever read. Alas! I was wrong.
@@ -24,4 +24,3 @@ It brings up the key points in an organic fashion and in the context of the stor
 * **Looking outside the tech bubble:** Throughout the book, there is constant reference to the manufacturing industry and drawing parallels with how a factory works. While these are very interesting parallels, it reminds me that problems (and solutions) may not necessarily be unique to your field. If you look outside, maybe you can draw some inspiration from other fields.
 
 * **Trust**: We know how important trust is in any sort of team. However, I have never seen it conveyed in such an elegant form (some parts might bring a lump in your throat). I think the book does a great job of underlining a crucial component building trust - _vulnerability_.
-

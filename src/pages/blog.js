@@ -41,7 +41,11 @@ export default function BlogIndex({ data, location }) {
 
   return (
     <Layout location={location} active="blog">
-      <Seo title="Blog" />
+      <Seo
+        title="Blog"
+        pathname="/blog/"
+        description="Essays and practical guides by Ankit Muchhala on software engineering, UI testing, web development, books, and behavioral science."
+      />
 
       <h1 className="accent-font">Blog</h1>
 

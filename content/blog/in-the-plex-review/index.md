@@ -1,7 +1,7 @@
 ---
 title: In the Plex - Book Review
 date: "2020-10-30"
-description: On the face of it, the book can be looked at as a story of Google - from a niche startup to the industry behemoth we know today. While that is the overall theme, it goes much deeper than that and tries to answer the question - what makes Google tick?
+description: An In the Plex book review exploring Google's rise, engineering culture, product decisions, advertising model, and enduring lessons.
 ---
 
 On the face of it, the book can be looked at as a story of Google - from a niche startup to the industry behemoth we know today. While that is the overall theme, it goes much deeper than that and tries to answer the question - what makes Google tick? It is an ode to the spirit of constantly questioning the status-quo and trying to build truly revolutionary things. This evident from the inception of Google when Larry Page wanted to index the whole internet - something which was thought impossible in the early 2000s.
@@ -26,4 +26,3 @@ Throughout the book, what is most interesting is the story behind “how” each
 * **Hiring**: At Google, recruiters always looked out for one truly distinct capability or achievement. If someone has spent the time and effort to become a world foosball champion, they sure have the capability to learn sales. Trying to apply this principle for hiring for our team.
 
 * **Do first, apologize later**: Google’s engineers are notorious for this. It is how Gmail and other major products came into being. If you want to do something, rather than waiting around, you do it and then show people the value. Seems like a good principle to start something new   .
-

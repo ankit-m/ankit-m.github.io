@@ -20,7 +20,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout active="home" location={location}>
-      <Seo title="Home" />
+      <Seo title="Home" pathname="/" />
       <HomeSection />
       <BlogSection blogs={blogs} />
       <TalkSection />

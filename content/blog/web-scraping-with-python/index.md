@@ -1,7 +1,7 @@
 ---
 title: Web scraping with Python
 date: "2015-07-20"
-description: Scraping the web using python is very easy. There are a lot of libraries available which bootstrap a lot of things for you. This post  uses requests and BeautifulSoup to scrape a university email client (POP is disabled).
+description: Learn the fundamentals of web scraping with Python, Requests, and Beautiful Soup through a practical university email client example.
 ---
 
 Scraping the web using python is very easy. There are a lot of libraries available which bootstrap a lot of things for you. This post `requests` and `BeautifulSoup` to scrape a university email client (POP is disabled).
